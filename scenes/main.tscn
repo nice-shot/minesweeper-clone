@@ -1,0 +1,2385 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sprites/minesweeper-tiles.png" type="Texture" id=1]
+[ext_resource path="res://scenes/tile.tscn" type="PackedScene" id=2]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 46, 31, 29, 29 )
+margin_left = 1.0
+margin_right = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+
+[sub_resource type="Theme" id=2]
+Panel/styles/panel = SubResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 1 )
+region_rect = Rect2( 1, 1, 14, 14 )
+margin_left = 1.0
+margin_right = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Frame" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 36.0
+margin_right = -6.0
+margin_bottom = -6.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="GridContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = -1.0
+custom_constants/vseparation = 1
+custom_constants/hseparation = 1
+columns = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tile" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+
+[node name="Tile2" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_right = 29.0
+
+[node name="Tile3" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_right = 44.0
+
+[node name="Tile4" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_right = 59.0
+
+[node name="Tile5" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_right = 74.0
+
+[node name="Tile6" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_right = 89.0
+
+[node name="Tile7" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_right = 104.0
+
+[node name="Tile8" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_right = 119.0
+
+[node name="Tile9" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_right = 134.0
+
+[node name="Tile10" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_right = 149.0
+
+[node name="Tile11" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_right = 164.0
+
+[node name="Tile12" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_right = 179.0
+
+[node name="Tile13" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_right = 194.0
+
+[node name="Tile14" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_right = 209.0
+
+[node name="Tile15" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_right = 224.0
+
+[node name="Tile16" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_right = 239.0
+
+[node name="Tile17" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_right = 254.0
+
+[node name="Tile18" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_right = 269.0
+
+[node name="Tile19" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_right = 284.0
+
+[node name="Tile20" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_right = 299.0
+
+[node name="Tile21" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 15.0
+margin_bottom = 29.0
+
+[node name="Tile22" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 29.0
+margin_bottom = 29.0
+
+[node name="Tile23" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 15.0
+margin_right = 44.0
+margin_bottom = 29.0
+
+[node name="Tile24" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 15.0
+margin_right = 59.0
+margin_bottom = 29.0
+
+[node name="Tile25" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 15.0
+margin_right = 74.0
+margin_bottom = 29.0
+
+[node name="Tile26" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 15.0
+margin_right = 89.0
+margin_bottom = 29.0
+
+[node name="Tile27" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 15.0
+margin_right = 104.0
+margin_bottom = 29.0
+
+[node name="Tile28" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 15.0
+margin_right = 119.0
+margin_bottom = 29.0
+
+[node name="Tile29" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 15.0
+margin_right = 134.0
+margin_bottom = 29.0
+
+[node name="Tile30" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 15.0
+margin_right = 149.0
+margin_bottom = 29.0
+
+[node name="Tile31" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 15.0
+margin_right = 164.0
+margin_bottom = 29.0
+
+[node name="Tile32" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 15.0
+margin_right = 179.0
+margin_bottom = 29.0
+
+[node name="Tile33" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 15.0
+margin_right = 194.0
+margin_bottom = 29.0
+
+[node name="Tile34" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 15.0
+margin_right = 209.0
+margin_bottom = 29.0
+
+[node name="Tile35" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 15.0
+margin_right = 224.0
+margin_bottom = 29.0
+
+[node name="Tile36" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 15.0
+margin_right = 239.0
+margin_bottom = 29.0
+
+[node name="Tile37" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 15.0
+margin_right = 254.0
+margin_bottom = 29.0
+
+[node name="Tile38" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 15.0
+margin_right = 269.0
+margin_bottom = 29.0
+
+[node name="Tile39" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 15.0
+margin_right = 284.0
+margin_bottom = 29.0
+
+[node name="Tile40" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 15.0
+margin_right = 299.0
+margin_bottom = 29.0
+
+[node name="Tile41" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 30.0
+margin_bottom = 44.0
+
+[node name="Tile42" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 30.0
+margin_right = 29.0
+margin_bottom = 44.0
+
+[node name="Tile43" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 44.0
+margin_bottom = 44.0
+
+[node name="Tile44" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 30.0
+margin_right = 59.0
+margin_bottom = 44.0
+
+[node name="Tile45" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 30.0
+margin_right = 74.0
+margin_bottom = 44.0
+
+[node name="Tile46" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 30.0
+margin_right = 89.0
+margin_bottom = 44.0
+
+[node name="Tile47" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 30.0
+margin_right = 104.0
+margin_bottom = 44.0
+
+[node name="Tile48" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 30.0
+margin_right = 119.0
+margin_bottom = 44.0
+
+[node name="Tile49" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 30.0
+margin_right = 134.0
+margin_bottom = 44.0
+
+[node name="Tile50" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 30.0
+margin_right = 149.0
+margin_bottom = 44.0
+
+[node name="Tile51" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 30.0
+margin_right = 164.0
+margin_bottom = 44.0
+
+[node name="Tile52" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 30.0
+margin_right = 179.0
+margin_bottom = 44.0
+
+[node name="Tile53" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 30.0
+margin_right = 194.0
+margin_bottom = 44.0
+
+[node name="Tile54" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 30.0
+margin_right = 209.0
+margin_bottom = 44.0
+
+[node name="Tile55" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 30.0
+margin_right = 224.0
+margin_bottom = 44.0
+
+[node name="Tile56" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 30.0
+margin_right = 239.0
+margin_bottom = 44.0
+
+[node name="Tile57" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 30.0
+margin_right = 254.0
+margin_bottom = 44.0
+
+[node name="Tile58" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 30.0
+margin_right = 269.0
+margin_bottom = 44.0
+
+[node name="Tile59" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 30.0
+margin_right = 284.0
+margin_bottom = 44.0
+
+[node name="Tile60" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 30.0
+margin_right = 299.0
+margin_bottom = 44.0
+
+[node name="Tile61" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 45.0
+margin_bottom = 59.0
+
+[node name="Tile62" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 45.0
+margin_right = 29.0
+margin_bottom = 59.0
+
+[node name="Tile63" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 45.0
+margin_right = 44.0
+margin_bottom = 59.0
+
+[node name="Tile64" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 45.0
+margin_right = 59.0
+margin_bottom = 59.0
+
+[node name="Tile65" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 45.0
+margin_right = 74.0
+margin_bottom = 59.0
+
+[node name="Tile66" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 45.0
+margin_right = 89.0
+margin_bottom = 59.0
+
+[node name="Tile67" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 45.0
+margin_right = 104.0
+margin_bottom = 59.0
+
+[node name="Tile68" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 45.0
+margin_right = 119.0
+margin_bottom = 59.0
+
+[node name="Tile69" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 45.0
+margin_right = 134.0
+margin_bottom = 59.0
+
+[node name="Tile70" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 45.0
+margin_right = 149.0
+margin_bottom = 59.0
+
+[node name="Tile71" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 45.0
+margin_right = 164.0
+margin_bottom = 59.0
+
+[node name="Tile72" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 45.0
+margin_right = 179.0
+margin_bottom = 59.0
+
+[node name="Tile73" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 45.0
+margin_right = 194.0
+margin_bottom = 59.0
+
+[node name="Tile74" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 45.0
+margin_right = 209.0
+margin_bottom = 59.0
+
+[node name="Tile75" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 45.0
+margin_right = 224.0
+margin_bottom = 59.0
+
+[node name="Tile76" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 45.0
+margin_right = 239.0
+margin_bottom = 59.0
+
+[node name="Tile77" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 45.0
+margin_right = 254.0
+margin_bottom = 59.0
+
+[node name="Tile78" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 45.0
+margin_right = 269.0
+margin_bottom = 59.0
+
+[node name="Tile79" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 45.0
+margin_right = 284.0
+margin_bottom = 59.0
+
+[node name="Tile80" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 45.0
+margin_right = 299.0
+margin_bottom = 59.0
+
+[node name="Tile81" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 60.0
+margin_bottom = 74.0
+
+[node name="Tile82" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 60.0
+margin_right = 29.0
+margin_bottom = 74.0
+
+[node name="Tile83" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 60.0
+margin_right = 44.0
+margin_bottom = 74.0
+
+[node name="Tile84" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 60.0
+margin_right = 59.0
+margin_bottom = 74.0
+
+[node name="Tile85" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 60.0
+margin_right = 74.0
+margin_bottom = 74.0
+
+[node name="Tile86" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 60.0
+margin_right = 89.0
+margin_bottom = 74.0
+
+[node name="Tile87" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 60.0
+margin_right = 104.0
+margin_bottom = 74.0
+
+[node name="Tile88" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 60.0
+margin_right = 119.0
+margin_bottom = 74.0
+
+[node name="Tile89" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 60.0
+margin_right = 134.0
+margin_bottom = 74.0
+
+[node name="Tile90" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 60.0
+margin_right = 149.0
+margin_bottom = 74.0
+
+[node name="Tile91" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 60.0
+margin_right = 164.0
+margin_bottom = 74.0
+
+[node name="Tile92" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 60.0
+margin_right = 179.0
+margin_bottom = 74.0
+
+[node name="Tile93" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 60.0
+margin_right = 194.0
+margin_bottom = 74.0
+
+[node name="Tile94" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 60.0
+margin_right = 209.0
+margin_bottom = 74.0
+
+[node name="Tile95" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 60.0
+margin_right = 224.0
+margin_bottom = 74.0
+
+[node name="Tile96" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 60.0
+margin_right = 239.0
+margin_bottom = 74.0
+
+[node name="Tile97" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 60.0
+margin_right = 254.0
+margin_bottom = 74.0
+
+[node name="Tile98" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 60.0
+margin_right = 269.0
+margin_bottom = 74.0
+
+[node name="Tile99" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 60.0
+margin_right = 284.0
+margin_bottom = 74.0
+
+[node name="Tile100" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 60.0
+margin_right = 299.0
+margin_bottom = 74.0
+
+[node name="Tile101" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 75.0
+margin_bottom = 89.0
+
+[node name="Tile102" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 75.0
+margin_right = 29.0
+margin_bottom = 89.0
+
+[node name="Tile103" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 75.0
+margin_right = 44.0
+margin_bottom = 89.0
+
+[node name="Tile104" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 75.0
+margin_right = 59.0
+margin_bottom = 89.0
+
+[node name="Tile105" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 75.0
+margin_right = 74.0
+margin_bottom = 89.0
+
+[node name="Tile106" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 75.0
+margin_right = 89.0
+margin_bottom = 89.0
+
+[node name="Tile107" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 75.0
+margin_right = 104.0
+margin_bottom = 89.0
+
+[node name="Tile108" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 75.0
+margin_right = 119.0
+margin_bottom = 89.0
+
+[node name="Tile109" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 75.0
+margin_right = 134.0
+margin_bottom = 89.0
+
+[node name="Tile110" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 75.0
+margin_right = 149.0
+margin_bottom = 89.0
+
+[node name="Tile111" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 75.0
+margin_right = 164.0
+margin_bottom = 89.0
+
+[node name="Tile112" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 75.0
+margin_right = 179.0
+margin_bottom = 89.0
+
+[node name="Tile113" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 75.0
+margin_right = 194.0
+margin_bottom = 89.0
+
+[node name="Tile114" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 75.0
+margin_right = 209.0
+margin_bottom = 89.0
+
+[node name="Tile115" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 75.0
+margin_right = 224.0
+margin_bottom = 89.0
+
+[node name="Tile116" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 75.0
+margin_right = 239.0
+margin_bottom = 89.0
+
+[node name="Tile117" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 75.0
+margin_right = 254.0
+margin_bottom = 89.0
+
+[node name="Tile118" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 75.0
+margin_right = 269.0
+margin_bottom = 89.0
+
+[node name="Tile119" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 75.0
+margin_right = 284.0
+margin_bottom = 89.0
+
+[node name="Tile120" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 75.0
+margin_right = 299.0
+margin_bottom = 89.0
+
+[node name="Tile121" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 90.0
+margin_bottom = 104.0
+
+[node name="Tile122" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 90.0
+margin_right = 29.0
+margin_bottom = 104.0
+
+[node name="Tile123" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 90.0
+margin_right = 44.0
+margin_bottom = 104.0
+
+[node name="Tile124" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 90.0
+margin_right = 59.0
+margin_bottom = 104.0
+
+[node name="Tile125" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 90.0
+margin_right = 74.0
+margin_bottom = 104.0
+
+[node name="Tile126" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 90.0
+margin_right = 89.0
+margin_bottom = 104.0
+
+[node name="Tile127" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 90.0
+margin_right = 104.0
+margin_bottom = 104.0
+
+[node name="Tile128" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 90.0
+margin_right = 119.0
+margin_bottom = 104.0
+
+[node name="Tile129" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 90.0
+margin_right = 134.0
+margin_bottom = 104.0
+
+[node name="Tile130" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 90.0
+margin_right = 149.0
+margin_bottom = 104.0
+
+[node name="Tile131" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 90.0
+margin_right = 164.0
+margin_bottom = 104.0
+
+[node name="Tile132" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 90.0
+margin_right = 179.0
+margin_bottom = 104.0
+
+[node name="Tile133" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 90.0
+margin_right = 194.0
+margin_bottom = 104.0
+
+[node name="Tile134" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 90.0
+margin_right = 209.0
+margin_bottom = 104.0
+
+[node name="Tile135" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 90.0
+margin_right = 224.0
+margin_bottom = 104.0
+
+[node name="Tile136" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 90.0
+margin_right = 239.0
+margin_bottom = 104.0
+
+[node name="Tile137" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 90.0
+margin_right = 254.0
+margin_bottom = 104.0
+
+[node name="Tile138" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 90.0
+margin_right = 269.0
+margin_bottom = 104.0
+
+[node name="Tile139" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 90.0
+margin_right = 284.0
+margin_bottom = 104.0
+
+[node name="Tile140" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 90.0
+margin_right = 299.0
+margin_bottom = 104.0
+
+[node name="Tile141" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 105.0
+margin_bottom = 119.0
+
+[node name="Tile142" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 105.0
+margin_right = 29.0
+margin_bottom = 119.0
+
+[node name="Tile143" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 105.0
+margin_right = 44.0
+margin_bottom = 119.0
+
+[node name="Tile144" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 105.0
+margin_right = 59.0
+margin_bottom = 119.0
+
+[node name="Tile145" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 105.0
+margin_right = 74.0
+margin_bottom = 119.0
+
+[node name="Tile146" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 105.0
+margin_right = 89.0
+margin_bottom = 119.0
+
+[node name="Tile147" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 105.0
+margin_right = 104.0
+margin_bottom = 119.0
+
+[node name="Tile148" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 105.0
+margin_right = 119.0
+margin_bottom = 119.0
+
+[node name="Tile149" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 105.0
+margin_right = 134.0
+margin_bottom = 119.0
+
+[node name="Tile150" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 105.0
+margin_right = 149.0
+margin_bottom = 119.0
+
+[node name="Tile151" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 105.0
+margin_right = 164.0
+margin_bottom = 119.0
+
+[node name="Tile152" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 105.0
+margin_right = 179.0
+margin_bottom = 119.0
+
+[node name="Tile153" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 105.0
+margin_right = 194.0
+margin_bottom = 119.0
+
+[node name="Tile154" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 105.0
+margin_right = 209.0
+margin_bottom = 119.0
+
+[node name="Tile155" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 105.0
+margin_right = 224.0
+margin_bottom = 119.0
+
+[node name="Tile156" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 105.0
+margin_right = 239.0
+margin_bottom = 119.0
+
+[node name="Tile157" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 105.0
+margin_right = 254.0
+margin_bottom = 119.0
+
+[node name="Tile158" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 105.0
+margin_right = 269.0
+margin_bottom = 119.0
+
+[node name="Tile159" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 105.0
+margin_right = 284.0
+margin_bottom = 119.0
+
+[node name="Tile160" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 105.0
+margin_right = 299.0
+margin_bottom = 119.0
+
+[node name="Tile161" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 120.0
+margin_bottom = 134.0
+
+[node name="Tile162" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 120.0
+margin_right = 29.0
+margin_bottom = 134.0
+
+[node name="Tile163" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 120.0
+margin_right = 44.0
+margin_bottom = 134.0
+
+[node name="Tile164" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 120.0
+margin_right = 59.0
+margin_bottom = 134.0
+
+[node name="Tile165" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 120.0
+margin_right = 74.0
+margin_bottom = 134.0
+
+[node name="Tile166" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 120.0
+margin_right = 89.0
+margin_bottom = 134.0
+
+[node name="Tile167" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 120.0
+margin_right = 104.0
+margin_bottom = 134.0
+
+[node name="Tile168" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 120.0
+margin_right = 119.0
+margin_bottom = 134.0
+
+[node name="Tile169" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 120.0
+margin_right = 134.0
+margin_bottom = 134.0
+
+[node name="Tile170" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 120.0
+margin_right = 149.0
+margin_bottom = 134.0
+
+[node name="Tile171" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 120.0
+margin_right = 164.0
+margin_bottom = 134.0
+
+[node name="Tile172" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 120.0
+margin_right = 179.0
+margin_bottom = 134.0
+
+[node name="Tile173" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 120.0
+margin_right = 194.0
+margin_bottom = 134.0
+
+[node name="Tile174" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 120.0
+margin_right = 209.0
+margin_bottom = 134.0
+
+[node name="Tile175" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 120.0
+margin_right = 224.0
+margin_bottom = 134.0
+
+[node name="Tile176" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 120.0
+margin_right = 239.0
+margin_bottom = 134.0
+
+[node name="Tile177" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 120.0
+margin_right = 254.0
+margin_bottom = 134.0
+
+[node name="Tile178" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 120.0
+margin_right = 269.0
+margin_bottom = 134.0
+
+[node name="Tile179" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 120.0
+margin_right = 284.0
+margin_bottom = 134.0
+
+[node name="Tile180" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 120.0
+margin_right = 299.0
+margin_bottom = 134.0
+
+[node name="Tile181" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 135.0
+margin_bottom = 149.0
+
+[node name="Tile182" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 135.0
+margin_right = 29.0
+margin_bottom = 149.0
+
+[node name="Tile183" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 135.0
+margin_right = 44.0
+margin_bottom = 149.0
+
+[node name="Tile184" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 135.0
+margin_right = 59.0
+margin_bottom = 149.0
+
+[node name="Tile185" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 135.0
+margin_right = 74.0
+margin_bottom = 149.0
+
+[node name="Tile186" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 135.0
+margin_right = 89.0
+margin_bottom = 149.0
+
+[node name="Tile187" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 135.0
+margin_right = 104.0
+margin_bottom = 149.0
+
+[node name="Tile188" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 135.0
+margin_right = 119.0
+margin_bottom = 149.0
+
+[node name="Tile189" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 135.0
+margin_right = 134.0
+margin_bottom = 149.0
+
+[node name="Tile190" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 135.0
+margin_right = 149.0
+margin_bottom = 149.0
+
+[node name="Tile191" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 135.0
+margin_right = 164.0
+margin_bottom = 149.0
+
+[node name="Tile192" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 135.0
+margin_right = 179.0
+margin_bottom = 149.0
+
+[node name="Tile193" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 135.0
+margin_right = 194.0
+margin_bottom = 149.0
+
+[node name="Tile194" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 135.0
+margin_right = 209.0
+margin_bottom = 149.0
+
+[node name="Tile195" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 135.0
+margin_right = 224.0
+margin_bottom = 149.0
+
+[node name="Tile196" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 135.0
+margin_right = 239.0
+margin_bottom = 149.0
+
+[node name="Tile197" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 135.0
+margin_right = 254.0
+margin_bottom = 149.0
+
+[node name="Tile198" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 135.0
+margin_right = 269.0
+margin_bottom = 149.0
+
+[node name="Tile199" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 135.0
+margin_right = 284.0
+margin_bottom = 149.0
+
+[node name="Tile200" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 135.0
+margin_right = 299.0
+margin_bottom = 149.0
+
+[node name="Tile201" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 150.0
+margin_bottom = 164.0
+
+[node name="Tile202" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 150.0
+margin_right = 29.0
+margin_bottom = 164.0
+
+[node name="Tile203" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 150.0
+margin_right = 44.0
+margin_bottom = 164.0
+
+[node name="Tile204" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 150.0
+margin_right = 59.0
+margin_bottom = 164.0
+
+[node name="Tile205" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 150.0
+margin_right = 74.0
+margin_bottom = 164.0
+
+[node name="Tile206" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 150.0
+margin_right = 89.0
+margin_bottom = 164.0
+
+[node name="Tile207" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 150.0
+margin_right = 104.0
+margin_bottom = 164.0
+
+[node name="Tile208" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 150.0
+margin_right = 119.0
+margin_bottom = 164.0
+
+[node name="Tile209" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 150.0
+margin_right = 134.0
+margin_bottom = 164.0
+
+[node name="Tile210" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 150.0
+margin_right = 149.0
+margin_bottom = 164.0
+
+[node name="Tile211" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 150.0
+margin_right = 164.0
+margin_bottom = 164.0
+
+[node name="Tile212" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 150.0
+margin_right = 179.0
+margin_bottom = 164.0
+
+[node name="Tile213" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 150.0
+margin_right = 194.0
+margin_bottom = 164.0
+
+[node name="Tile214" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 150.0
+margin_right = 209.0
+margin_bottom = 164.0
+
+[node name="Tile215" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 150.0
+margin_right = 224.0
+margin_bottom = 164.0
+
+[node name="Tile216" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 150.0
+margin_right = 239.0
+margin_bottom = 164.0
+
+[node name="Tile217" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 150.0
+margin_right = 254.0
+margin_bottom = 164.0
+
+[node name="Tile218" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 150.0
+margin_right = 269.0
+margin_bottom = 164.0
+
+[node name="Tile219" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 150.0
+margin_right = 284.0
+margin_bottom = 164.0
+
+[node name="Tile220" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 150.0
+margin_right = 299.0
+margin_bottom = 164.0
+
+[node name="Tile221" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 165.0
+margin_bottom = 179.0
+
+[node name="Tile222" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 165.0
+margin_right = 29.0
+margin_bottom = 179.0
+
+[node name="Tile223" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 165.0
+margin_right = 44.0
+margin_bottom = 179.0
+
+[node name="Tile224" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 165.0
+margin_right = 59.0
+margin_bottom = 179.0
+
+[node name="Tile225" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 165.0
+margin_right = 74.0
+margin_bottom = 179.0
+
+[node name="Tile226" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 165.0
+margin_right = 89.0
+margin_bottom = 179.0
+
+[node name="Tile227" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 165.0
+margin_right = 104.0
+margin_bottom = 179.0
+
+[node name="Tile228" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 165.0
+margin_right = 119.0
+margin_bottom = 179.0
+
+[node name="Tile229" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 165.0
+margin_right = 134.0
+margin_bottom = 179.0
+
+[node name="Tile230" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 165.0
+margin_right = 149.0
+margin_bottom = 179.0
+
+[node name="Tile231" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 165.0
+margin_right = 164.0
+margin_bottom = 179.0
+
+[node name="Tile232" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 165.0
+margin_right = 179.0
+margin_bottom = 179.0
+
+[node name="Tile233" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 165.0
+margin_right = 194.0
+margin_bottom = 179.0
+
+[node name="Tile234" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 165.0
+margin_right = 209.0
+margin_bottom = 179.0
+
+[node name="Tile235" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 165.0
+margin_right = 224.0
+margin_bottom = 179.0
+
+[node name="Tile236" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 165.0
+margin_right = 239.0
+margin_bottom = 179.0
+
+[node name="Tile237" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 165.0
+margin_right = 254.0
+margin_bottom = 179.0
+
+[node name="Tile238" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 165.0
+margin_right = 269.0
+margin_bottom = 179.0
+
+[node name="Tile239" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 165.0
+margin_right = 284.0
+margin_bottom = 179.0
+
+[node name="Tile240" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 165.0
+margin_right = 299.0
+margin_bottom = 179.0
+
+[node name="Tile241" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 180.0
+margin_bottom = 194.0
+
+[node name="Tile242" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 180.0
+margin_right = 29.0
+margin_bottom = 194.0
+
+[node name="Tile243" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 180.0
+margin_right = 44.0
+margin_bottom = 194.0
+
+[node name="Tile244" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 180.0
+margin_right = 59.0
+margin_bottom = 194.0
+
+[node name="Tile245" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 180.0
+margin_right = 74.0
+margin_bottom = 194.0
+
+[node name="Tile246" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 180.0
+margin_right = 89.0
+margin_bottom = 194.0
+
+[node name="Tile247" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 180.0
+margin_right = 104.0
+margin_bottom = 194.0
+
+[node name="Tile248" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 180.0
+margin_right = 119.0
+margin_bottom = 194.0
+
+[node name="Tile249" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 180.0
+margin_right = 134.0
+margin_bottom = 194.0
+
+[node name="Tile250" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 180.0
+margin_right = 149.0
+margin_bottom = 194.0
+
+[node name="Tile251" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 180.0
+margin_right = 164.0
+margin_bottom = 194.0
+
+[node name="Tile252" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 180.0
+margin_right = 179.0
+margin_bottom = 194.0
+
+[node name="Tile253" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 180.0
+margin_right = 194.0
+margin_bottom = 194.0
+
+[node name="Tile254" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 180.0
+margin_right = 209.0
+margin_bottom = 194.0
+
+[node name="Tile255" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 180.0
+margin_right = 224.0
+margin_bottom = 194.0
+
+[node name="Tile256" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 180.0
+margin_right = 239.0
+margin_bottom = 194.0
+
+[node name="Tile257" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 180.0
+margin_right = 254.0
+margin_bottom = 194.0
+
+[node name="Tile258" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 180.0
+margin_right = 269.0
+margin_bottom = 194.0
+
+[node name="Tile259" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 180.0
+margin_right = 284.0
+margin_bottom = 194.0
+
+[node name="Tile260" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 180.0
+margin_right = 299.0
+margin_bottom = 194.0
+
+[node name="Tile261" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 195.0
+margin_bottom = 209.0
+
+[node name="Tile262" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 195.0
+margin_right = 29.0
+margin_bottom = 209.0
+
+[node name="Tile263" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 195.0
+margin_right = 44.0
+margin_bottom = 209.0
+
+[node name="Tile264" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 195.0
+margin_right = 59.0
+margin_bottom = 209.0
+
+[node name="Tile265" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 195.0
+margin_right = 74.0
+margin_bottom = 209.0
+
+[node name="Tile266" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 195.0
+margin_right = 89.0
+margin_bottom = 209.0
+
+[node name="Tile267" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 195.0
+margin_right = 104.0
+margin_bottom = 209.0
+
+[node name="Tile268" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 195.0
+margin_right = 119.0
+margin_bottom = 209.0
+
+[node name="Tile269" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 195.0
+margin_right = 134.0
+margin_bottom = 209.0
+
+[node name="Tile270" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 195.0
+margin_right = 149.0
+margin_bottom = 209.0
+
+[node name="Tile271" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 195.0
+margin_right = 164.0
+margin_bottom = 209.0
+
+[node name="Tile272" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 195.0
+margin_right = 179.0
+margin_bottom = 209.0
+
+[node name="Tile273" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 195.0
+margin_right = 194.0
+margin_bottom = 209.0
+
+[node name="Tile274" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 195.0
+margin_right = 209.0
+margin_bottom = 209.0
+
+[node name="Tile275" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 195.0
+margin_right = 224.0
+margin_bottom = 209.0
+
+[node name="Tile276" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 195.0
+margin_right = 239.0
+margin_bottom = 209.0
+
+[node name="Tile277" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 195.0
+margin_right = 254.0
+margin_bottom = 209.0
+
+[node name="Tile278" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 195.0
+margin_right = 269.0
+margin_bottom = 209.0
+
+[node name="Tile279" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 195.0
+margin_right = 284.0
+margin_bottom = 209.0
+
+[node name="Tile280" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 195.0
+margin_right = 299.0
+margin_bottom = 209.0
+
+[node name="Tile281" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 210.0
+margin_bottom = 224.0
+
+[node name="Tile282" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 210.0
+margin_right = 29.0
+margin_bottom = 224.0
+
+[node name="Tile283" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 210.0
+margin_right = 44.0
+margin_bottom = 224.0
+
+[node name="Tile284" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 210.0
+margin_right = 59.0
+margin_bottom = 224.0
+
+[node name="Tile285" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 210.0
+margin_right = 74.0
+margin_bottom = 224.0
+
+[node name="Tile286" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 210.0
+margin_right = 89.0
+margin_bottom = 224.0
+
+[node name="Tile287" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 210.0
+margin_right = 104.0
+margin_bottom = 224.0
+
+[node name="Tile288" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 210.0
+margin_right = 119.0
+margin_bottom = 224.0
+
+[node name="Tile289" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 210.0
+margin_right = 134.0
+margin_bottom = 224.0
+
+[node name="Tile290" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 210.0
+margin_right = 149.0
+margin_bottom = 224.0
+
+[node name="Tile291" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 210.0
+margin_right = 164.0
+margin_bottom = 224.0
+
+[node name="Tile292" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 210.0
+margin_right = 179.0
+margin_bottom = 224.0
+
+[node name="Tile293" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 210.0
+margin_right = 194.0
+margin_bottom = 224.0
+
+[node name="Tile294" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 210.0
+margin_right = 209.0
+margin_bottom = 224.0
+
+[node name="Tile295" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 210.0
+margin_right = 224.0
+margin_bottom = 224.0
+
+[node name="Tile296" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 210.0
+margin_right = 239.0
+margin_bottom = 224.0
+
+[node name="Tile297" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 210.0
+margin_right = 254.0
+margin_bottom = 224.0
+
+[node name="Tile298" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 210.0
+margin_right = 269.0
+margin_bottom = 224.0
+
+[node name="Tile299" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 210.0
+margin_right = 284.0
+margin_bottom = 224.0
+
+[node name="Tile300" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 210.0
+margin_right = 299.0
+margin_bottom = 224.0
+
+[node name="Tile301" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 225.0
+margin_bottom = 239.0
+
+[node name="Tile302" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 225.0
+margin_right = 29.0
+margin_bottom = 239.0
+
+[node name="Tile303" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 225.0
+margin_right = 44.0
+margin_bottom = 239.0
+
+[node name="Tile304" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 225.0
+margin_right = 59.0
+margin_bottom = 239.0
+
+[node name="Tile305" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 225.0
+margin_right = 74.0
+margin_bottom = 239.0
+
+[node name="Tile306" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 225.0
+margin_right = 89.0
+margin_bottom = 239.0
+
+[node name="Tile307" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 225.0
+margin_right = 104.0
+margin_bottom = 239.0
+
+[node name="Tile308" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 225.0
+margin_right = 119.0
+margin_bottom = 239.0
+
+[node name="Tile309" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 225.0
+margin_right = 134.0
+margin_bottom = 239.0
+
+[node name="Tile310" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 225.0
+margin_right = 149.0
+margin_bottom = 239.0
+
+[node name="Tile311" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 225.0
+margin_right = 164.0
+margin_bottom = 239.0
+
+[node name="Tile312" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 225.0
+margin_right = 179.0
+margin_bottom = 239.0
+
+[node name="Tile313" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 225.0
+margin_right = 194.0
+margin_bottom = 239.0
+
+[node name="Tile314" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 225.0
+margin_right = 209.0
+margin_bottom = 239.0
+
+[node name="Tile315" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 225.0
+margin_right = 224.0
+margin_bottom = 239.0
+
+[node name="Tile316" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 225.0
+margin_right = 239.0
+margin_bottom = 239.0
+
+[node name="Tile317" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 225.0
+margin_right = 254.0
+margin_bottom = 239.0
+
+[node name="Tile318" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 225.0
+margin_right = 269.0
+margin_bottom = 239.0
+
+[node name="Tile319" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 225.0
+margin_right = 284.0
+margin_bottom = 239.0
+
+[node name="Tile320" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 225.0
+margin_right = 299.0
+margin_bottom = 239.0
+
+[node name="Tile321" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 240.0
+margin_bottom = 254.0
+
+[node name="Tile322" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 240.0
+margin_right = 29.0
+margin_bottom = 254.0
+
+[node name="Tile323" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 240.0
+margin_right = 44.0
+margin_bottom = 254.0
+
+[node name="Tile324" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 240.0
+margin_right = 59.0
+margin_bottom = 254.0
+
+[node name="Tile325" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 240.0
+margin_right = 74.0
+margin_bottom = 254.0
+
+[node name="Tile326" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 240.0
+margin_right = 89.0
+margin_bottom = 254.0
+
+[node name="Tile327" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 240.0
+margin_right = 104.0
+margin_bottom = 254.0
+
+[node name="Tile328" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 240.0
+margin_right = 119.0
+margin_bottom = 254.0
+
+[node name="Tile329" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 240.0
+margin_right = 134.0
+margin_bottom = 254.0
+
+[node name="Tile330" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 240.0
+margin_right = 149.0
+margin_bottom = 254.0
+
+[node name="Tile331" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 240.0
+margin_right = 164.0
+margin_bottom = 254.0
+
+[node name="Tile332" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 240.0
+margin_right = 179.0
+margin_bottom = 254.0
+
+[node name="Tile333" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 240.0
+margin_right = 194.0
+margin_bottom = 254.0
+
+[node name="Tile334" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 240.0
+margin_right = 209.0
+margin_bottom = 254.0
+
+[node name="Tile335" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 240.0
+margin_right = 224.0
+margin_bottom = 254.0
+
+[node name="Tile336" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 240.0
+margin_right = 239.0
+margin_bottom = 254.0
+
+[node name="Tile337" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 240.0
+margin_right = 254.0
+margin_bottom = 254.0
+
+[node name="Tile338" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 240.0
+margin_right = 269.0
+margin_bottom = 254.0
+
+[node name="Tile339" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 240.0
+margin_right = 284.0
+margin_bottom = 254.0
+
+[node name="Tile340" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 240.0
+margin_right = 299.0
+margin_bottom = 254.0
+
+[node name="Tile341" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 255.0
+margin_bottom = 269.0
+
+[node name="Tile342" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 255.0
+margin_right = 29.0
+margin_bottom = 269.0
+
+[node name="Tile343" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 255.0
+margin_right = 44.0
+margin_bottom = 269.0
+
+[node name="Tile344" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 255.0
+margin_right = 59.0
+margin_bottom = 269.0
+
+[node name="Tile345" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 255.0
+margin_right = 74.0
+margin_bottom = 269.0
+
+[node name="Tile346" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 255.0
+margin_right = 89.0
+margin_bottom = 269.0
+
+[node name="Tile347" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 255.0
+margin_right = 104.0
+margin_bottom = 269.0
+
+[node name="Tile348" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 255.0
+margin_right = 119.0
+margin_bottom = 269.0
+
+[node name="Tile349" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 255.0
+margin_right = 134.0
+margin_bottom = 269.0
+
+[node name="Tile350" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 255.0
+margin_right = 149.0
+margin_bottom = 269.0
+
+[node name="Tile351" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 255.0
+margin_right = 164.0
+margin_bottom = 269.0
+
+[node name="Tile352" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 255.0
+margin_right = 179.0
+margin_bottom = 269.0
+
+[node name="Tile353" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 255.0
+margin_right = 194.0
+margin_bottom = 269.0
+
+[node name="Tile354" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 255.0
+margin_right = 209.0
+margin_bottom = 269.0
+
+[node name="Tile355" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 255.0
+margin_right = 224.0
+margin_bottom = 269.0
+
+[node name="Tile356" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 255.0
+margin_right = 239.0
+margin_bottom = 269.0
+
+[node name="Tile357" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 255.0
+margin_right = 254.0
+margin_bottom = 269.0
+
+[node name="Tile358" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 255.0
+margin_right = 269.0
+margin_bottom = 269.0
+
+[node name="Tile359" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 255.0
+margin_right = 284.0
+margin_bottom = 269.0
+
+[node name="Tile360" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 255.0
+margin_right = 299.0
+margin_bottom = 269.0
+
+[node name="Tile361" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 270.0
+margin_bottom = 284.0
+
+[node name="Tile362" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 270.0
+margin_right = 29.0
+margin_bottom = 284.0
+
+[node name="Tile363" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 270.0
+margin_right = 44.0
+margin_bottom = 284.0
+
+[node name="Tile364" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 270.0
+margin_right = 59.0
+margin_bottom = 284.0
+
+[node name="Tile365" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 270.0
+margin_right = 74.0
+margin_bottom = 284.0
+
+[node name="Tile366" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 270.0
+margin_right = 89.0
+margin_bottom = 284.0
+
+[node name="Tile367" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 270.0
+margin_right = 104.0
+margin_bottom = 284.0
+
+[node name="Tile368" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 270.0
+margin_right = 119.0
+margin_bottom = 284.0
+
+[node name="Tile369" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 270.0
+margin_right = 134.0
+margin_bottom = 284.0
+
+[node name="Tile370" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 270.0
+margin_right = 149.0
+margin_bottom = 284.0
+
+[node name="Tile371" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 270.0
+margin_right = 164.0
+margin_bottom = 284.0
+
+[node name="Tile372" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 270.0
+margin_right = 179.0
+margin_bottom = 284.0
+
+[node name="Tile373" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 270.0
+margin_right = 194.0
+margin_bottom = 284.0
+
+[node name="Tile374" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 270.0
+margin_right = 209.0
+margin_bottom = 284.0
+
+[node name="Tile375" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 270.0
+margin_right = 224.0
+margin_bottom = 284.0
+
+[node name="Tile376" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 270.0
+margin_right = 239.0
+margin_bottom = 284.0
+
+[node name="Tile377" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 270.0
+margin_right = 254.0
+margin_bottom = 284.0
+
+[node name="Tile378" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 270.0
+margin_right = 269.0
+margin_bottom = 284.0
+
+[node name="Tile379" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 270.0
+margin_right = 284.0
+margin_bottom = 284.0
+
+[node name="Tile380" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 270.0
+margin_right = 299.0
+margin_bottom = 284.0
+
+[node name="Tile381" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_top = 285.0
+margin_bottom = 299.0
+
+[node name="Tile382" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 15.0
+margin_top = 285.0
+margin_right = 29.0
+margin_bottom = 299.0
+
+[node name="Tile383" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_top = 285.0
+margin_right = 44.0
+margin_bottom = 299.0
+
+[node name="Tile384" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 45.0
+margin_top = 285.0
+margin_right = 59.0
+margin_bottom = 299.0
+
+[node name="Tile385" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 60.0
+margin_top = 285.0
+margin_right = 74.0
+margin_bottom = 299.0
+
+[node name="Tile386" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 75.0
+margin_top = 285.0
+margin_right = 89.0
+margin_bottom = 299.0
+
+[node name="Tile387" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 90.0
+margin_top = 285.0
+margin_right = 104.0
+margin_bottom = 299.0
+
+[node name="Tile388" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 105.0
+margin_top = 285.0
+margin_right = 119.0
+margin_bottom = 299.0
+
+[node name="Tile389" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 120.0
+margin_top = 285.0
+margin_right = 134.0
+margin_bottom = 299.0
+
+[node name="Tile390" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 135.0
+margin_top = 285.0
+margin_right = 149.0
+margin_bottom = 299.0
+
+[node name="Tile391" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 150.0
+margin_top = 285.0
+margin_right = 164.0
+margin_bottom = 299.0
+
+[node name="Tile392" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 165.0
+margin_top = 285.0
+margin_right = 179.0
+margin_bottom = 299.0
+
+[node name="Tile393" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_top = 285.0
+margin_right = 194.0
+margin_bottom = 299.0
+
+[node name="Tile394" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 195.0
+margin_top = 285.0
+margin_right = 209.0
+margin_bottom = 299.0
+
+[node name="Tile395" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 210.0
+margin_top = 285.0
+margin_right = 224.0
+margin_bottom = 299.0
+
+[node name="Tile396" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 225.0
+margin_top = 285.0
+margin_right = 239.0
+margin_bottom = 299.0
+
+[node name="Tile397" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 285.0
+margin_right = 254.0
+margin_bottom = 299.0
+
+[node name="Tile398" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 255.0
+margin_top = 285.0
+margin_right = 269.0
+margin_bottom = 299.0
+
+[node name="Tile399" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 270.0
+margin_top = 285.0
+margin_right = 284.0
+margin_bottom = 299.0
+
+[node name="Tile400" parent="GridContainer/GridContainer" instance=ExtResource( 2 )]
+margin_left = 285.0
+margin_top = 285.0
+margin_right = 299.0
+margin_bottom = 299.0
