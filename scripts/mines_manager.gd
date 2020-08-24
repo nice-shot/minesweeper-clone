@@ -14,7 +14,7 @@ var _remaining_tiles: int
 onready var _grid: GridContainer = $Grid
 
 
-func _get_nearby_tiles(row, column) -> Array:
+func _get_nearby_tiles(row: int, column: int) -> Array:
     var nearby_tiles = []
     
     for i in range(row - 1, row + 2):
@@ -28,7 +28,7 @@ func _get_nearby_tiles(row, column) -> Array:
     return nearby_tiles
 
 
-func _calculate_nearby_mines(row, column) -> int:
+func _calculate_nearby_mines(row: int, column: int) -> int:
     var nearby_mines = 0
     for tile in _get_nearby_tiles(row, column):
         if tile.nearby_mines == -1:
@@ -36,7 +36,7 @@ func _calculate_nearby_mines(row, column) -> int:
     return nearby_mines
 
 
-func _place_mines(starting_row, starting_column) -> void:
+func _place_mines(starting_row: int, starting_column: int) -> void:
     _mines_placed = true
     var total_tiles := _grid.get_child_count()
     var remaining_mines := total_tiles * MINE_PERCENTAGE
@@ -70,7 +70,7 @@ func _place_mines(starting_row, starting_column) -> void:
     print("Total of %d tiles to click." % _remaining_tiles)
                 
 
-func _on_tile_clicked(row, column) -> void:
+func _on_tile_clicked(row: int, column: int) -> void:
     print("Clicked on tile: %dx%d" % [row, column])
     if not _mines_placed:
         _place_mines(row, column)
@@ -98,6 +98,8 @@ func _on_tile_clicked(row, column) -> void:
 
 func create_board(width: int, height: int) -> void:
     print("Creating board: %dX%d" % [width, height])
+    
+    emit_signal("reset")
     
     get_tree().paused = false
     _mines_placed = false
@@ -127,7 +129,6 @@ func create_board(width: int, height: int) -> void:
 
 func reset() -> void:
     create_board(_grid.columns, int(_grid.get_child_count() / _grid.columns))
-    emit_signal("reset")
 
 
 func expose() -> void:

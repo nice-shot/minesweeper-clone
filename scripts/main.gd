@@ -8,15 +8,20 @@ export var width := 20
 export var height := 20
 
 onready var _mines_manager := $MinesContainer
-onready var _retry_symbol: Control = $ResetButton/RetrySymbol
-onready var _lost_symbol: Control = $ResetButton/LostSymbol
-onready var _won_symbol: Control = $ResetButton/WonSymbol
+onready var _retry_symbol: Control = $TopButtons/ResetButton/RetrySymbol
+onready var _lost_symbol: Control = $TopButtons/ResetButton/LostSymbol
+onready var _won_symbol: Control = $TopButtons/ResetButton/WonSymbol
 
-func _set_board_size(width, height):
+
+func _ready() -> void:
+    set_board_size(width, height)
+
+
+func set_board_size(width: int, height: int) -> void:
     """
     Adjusts the screen size and sets the mines.
     """
-    var new_size = Vector2(
+    var new_size := Vector2(
         width * CELL_SIZE + 1 + GRID_MARGIN_SIZE * 2,
         height * CELL_SIZE + 1 + GRID_MARGIN_SIZE + TOP_HEIGHT
     )
@@ -24,10 +29,6 @@ func _set_board_size(width, height):
     get_viewport().set_size_override(false, new_size)
     
     _mines_manager.create_board(width, height)
-    
-    
-func _ready() -> void:
-    _set_board_size(width, height)
 
 
 func on_lost() -> void:

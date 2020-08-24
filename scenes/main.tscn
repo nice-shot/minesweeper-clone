@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://sprites/minesweeper-tiles.png" type="Texture" id=1]
 [ext_resource path="res://scenes/tile.tscn" type="PackedScene" id=2]
@@ -44,6 +44,22 @@ region = Rect2( 52, 61, 20, 29 )
 atlas = ExtResource( 1 )
 region = Rect2( 73, 61, 16, 29 )
 
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 87, 31, 15, 29 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 102, 66, 5, 19 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 66, 5, 19 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 1 )
+region = Rect2( 90, 66, 5, 19 )
+
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -52,8 +68,6 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-width = 10
-height = 10
 
 [node name="Frame" type="Panel" parent="."]
 anchor_right = 1.0
@@ -63,14 +77,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResetButton" type="TextureButton" parent="."]
+[node name="TopButtons" type="Control" parent="."]
 pause_mode = 2
+anchor_right = 1.0
+margin_left = 6.0
+margin_top = 4.0
+margin_right = -6.0
+margin_bottom = 33.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetButton" type="TextureButton" parent="TopButtons"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -21.0
-margin_top = 4.0
 margin_right = 21.0
-margin_bottom = 33.0
+margin_bottom = 29.0
 texture_normal = SubResource( 4 )
 texture_pressed = SubResource( 5 )
 expand = true
@@ -79,25 +102,97 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RetrySymbol" type="TextureRect" parent="ResetButton"]
+[node name="RetrySymbol" type="TextureRect" parent="TopButtons/ResetButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = SubResource( 6 )
 stretch_mode = 4
 
-[node name="LostSymbol" type="TextureRect" parent="ResetButton"]
+[node name="LostSymbol" type="TextureRect" parent="TopButtons/ResetButton"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = SubResource( 7 )
 stretch_mode = 4
 
-[node name="WonSymbol" type="TextureRect" parent="ResetButton"]
+[node name="WonSymbol" type="TextureRect" parent="TopButtons/ResetButton"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = SubResource( 8 )
 stretch_mode = 4
+
+[node name="LargSizeButton" type="TextureButton" parent="TopButtons"]
+pause_mode = 2
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -15.0
+margin_bottom = 29.0
+texture_normal = SubResource( 9 )
+texture_pressed = SubResource( 5 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="TopButtons/LargSizeButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 10 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MediumSizeButton" type="TextureButton" parent="TopButtons"]
+pause_mode = 2
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -32.0
+margin_right = -17.0
+margin_bottom = 29.0
+texture_normal = SubResource( 9 )
+texture_pressed = SubResource( 5 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="TopButtons/MediumSizeButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 11 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SmallSizeButton" type="TextureButton" parent="TopButtons"]
+pause_mode = 2
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -49.0
+margin_right = -34.0
+margin_bottom = 29.0
+rect_pivot_offset = Vector2( -64.378, -17.5437 )
+texture_normal = SubResource( 9 )
+texture_pressed = SubResource( 5 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="TopButtons/SmallSizeButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 12 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ExposeButton" type="TextureButton" parent="."]
 visible = false
@@ -2460,7 +2555,10 @@ margin_left = 285.0
 margin_top = 285.0
 margin_right = 299.0
 margin_bottom = 299.0
-[connection signal="pressed" from="ResetButton" to="MinesContainer" method="reset"]
+[connection signal="pressed" from="TopButtons/ResetButton" to="MinesContainer" method="reset"]
+[connection signal="pressed" from="TopButtons/LargSizeButton" to="." method="set_board_size" binds= [ 40, 25 ]]
+[connection signal="pressed" from="TopButtons/MediumSizeButton" to="." method="set_board_size" binds= [ 20, 20 ]]
+[connection signal="pressed" from="TopButtons/SmallSizeButton" to="." method="set_board_size" binds= [ 10, 15 ]]
 [connection signal="pressed" from="ExposeButton" to="." method="expose"]
 [connection signal="lost" from="MinesContainer" to="." method="on_lost"]
 [connection signal="reset" from="MinesContainer" to="." method="on_reset"]
