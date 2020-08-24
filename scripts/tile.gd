@@ -1,3 +1,4 @@
+class_name Tile
 extends TextureButton
 
 signal flagged
@@ -33,6 +34,7 @@ func _set_flagged(is_flagged: bool):
 
 
 func _gui_input(event: InputEvent) -> void:
+    if disabled: return
     var mouse_event = event as InputEventMouseButton
     if mouse_event \
        and mouse_event.button_index == BUTTON_RIGHT \
