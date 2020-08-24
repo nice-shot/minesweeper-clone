@@ -27,11 +27,11 @@ config/icon="res://icon.png"
 
 window/size/width=315
 window/size/height=345
+window/size/resizable=false
 window/size/always_on_top=true
 window/size/test_width=630
 window/size/test_height=690
-window/stretch/mode="viewport"
-window/stretch/aspect="keep"
+window/stretch/shrink=2.0
 
 [rendering]
 

@@ -6,18 +6,28 @@ var _tile_scene := preload("res://scenes/tile.tscn")
 var _mine_matrix: Array
 var _mines_placed := false
 
-onready var _grid: GridContainer = $GridContainer/Grid
+onready var _grid: GridContainer = $Grid
 
 
-func _calculate_nearby_mines(row, column) -> int:
-    var nearby_mines = 0
+func _get_nearby_tiles(row, column) -> Array:
+    var nearby_tiles = []
+    
     for i in range(row - 1, row + 2):
         if i < 0 or i >= len(_mine_matrix): continue
         for j in range(column - 1, column + 2):
             if j < 0 or j >= len(_mine_matrix[0]): continue
+            if i == row and j == column: continue
             var tile: Tile = _mine_matrix[i][j]
-            if tile.nearby_mines == -1:
-                nearby_mines += 1
+            nearby_tiles.append(tile)
+            
+    return nearby_tiles
+
+
+func _calculate_nearby_mines(row, column) -> int:
+    var nearby_mines = 0
+    for tile in _get_nearby_tiles(row, column):
+        if tile.nearby_mines == -1:
+            nearby_mines += 1
     return nearby_mines
 
 
@@ -55,11 +65,24 @@ func _on_tile_clicked(row, column) -> void:
     print("Clicked on tile: %dx%d" % [row, column])
     if not _mines_placed:
         _place_mines(row, column)
+    
+    var tile: Tile = _mine_matrix[row][column]
+    # Reveal adjacent tiles when clicking on a tile with no nearby mines.
+    if tile.nearby_mines == 0:
+        for nearby_tile in _get_nearby_tiles(row, column):
+            nearby_tile.reveal()
+    # Reveal all mine tiles when clicking on a mine.
+    elif tile.nearby_mines == -1:
+        for t in _grid.get_children():
+            if t.nearby_mines == -1:
+                t.reveal()
+                get_tree().paused = true
 
 
-func _create_board(width: int, height: int) -> void:
+func create_board(width: int, height: int) -> void:
     print("Creating board: %dX%d" % [width, height])
     
+    get_tree().paused = false
     _mines_placed = false
     
     # Create a dataset to place the tiles in
@@ -85,14 +108,10 @@ func _create_board(width: int, height: int) -> void:
         _grid.add_child(tile)
 
 
-func _ready() -> void:
-    reset()
-
-
 func reset() -> void:
-    _create_board(20, 20)
+    create_board(_grid.columns, int(_grid.get_child_count() / _grid.columns))
 
 
 func expose() -> void:
     for tile in _grid.get_children():
-        tile._pressed()
+        tile.reveal()

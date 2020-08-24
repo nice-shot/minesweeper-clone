@@ -20,6 +20,10 @@ onready var _overlay: TextureRect = $Overlay
 
 
 func _set_flagged(is_flagged: bool):
+    # This tile has already been clicked.
+    if disabled and _overlay.texture != _question_mark:
+        return
+        
     if is_flagged:
         _overlay.texture = _question_mark
         _overlay.visible = true
@@ -34,7 +38,6 @@ func _set_flagged(is_flagged: bool):
 
 
 func _gui_input(event: InputEvent) -> void:
-    if disabled: return
     var mouse_event = event as InputEventMouseButton
     if mouse_event \
        and mouse_event.button_index == BUTTON_RIGHT \
@@ -43,6 +46,12 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func _pressed() -> void:
+    reveal()
+
+
+func reveal() -> void:
+    # Avoid revealing twice.
+    if disabled: return
     match nearby_mines:
         -1:
             _overlay.texture = _mine
