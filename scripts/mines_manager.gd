@@ -2,9 +2,14 @@ extends Node
 
 const MINE_PERCENTAGE := 0.25
 
+signal lost
+signal won
+signal reset
+
 var _tile_scene := preload("res://scenes/tile.tscn")
 var _mine_matrix: Array
 var _mines_placed := false
+var _remaining_tiles: int
 
 onready var _grid: GridContainer = $Grid
 
@@ -52,13 +57,17 @@ func _place_mines(starting_row, starting_column) -> void:
                 tile.nearby_mines = -1
                 remaining_mines -= 1
     
+    _remaining_tiles = 0
     # Set numbers based on mines
     for row_index in len(_mine_matrix):
         var row = _mine_matrix[row_index]
         for column_index in len(row):
             var tile: Tile = row[column_index]
             if tile.nearby_mines != -1:
+                _remaining_tiles += 1
                 tile.nearby_mines = _calculate_nearby_mines(row_index, column_index)
+    
+    print("Total of %d tiles to click." % _remaining_tiles)
                 
 
 func _on_tile_clicked(row, column) -> void:
@@ -67,17 +76,25 @@ func _on_tile_clicked(row, column) -> void:
         _place_mines(row, column)
     
     var tile: Tile = _mine_matrix[row][column]
-    # Reveal adjacent tiles when clicking on a tile with no nearby mines.
-    if tile.nearby_mines == 0:
-        for nearby_tile in _get_nearby_tiles(row, column):
-            nearby_tile.reveal()
     # Reveal all mine tiles when clicking on a mine.
-    elif tile.nearby_mines == -1:
+    if tile.nearby_mines == -1:
         for t in _grid.get_children():
             if t.nearby_mines == -1:
                 t.reveal()
                 get_tree().paused = true
-
+        emit_signal("lost")
+        return
+    
+    # Reveal adjacent tiles when clicking on a tile with no nearby mines.
+    if tile.nearby_mines == 0:
+        for nearby_tile in _get_nearby_tiles(row, column):
+            nearby_tile.reveal()
+    
+    _remaining_tiles -= 1
+    if _remaining_tiles <= 0:
+        emit_signal("won")
+        get_tree().paused = true
+    
 
 func create_board(width: int, height: int) -> void:
     print("Creating board: %dX%d" % [width, height])
@@ -110,6 +127,7 @@ func create_board(width: int, height: int) -> void:
 
 func reset() -> void:
     create_board(_grid.columns, int(_grid.get_child_count() / _grid.columns))
+    emit_signal("reset")
 
 
 func expose() -> void:

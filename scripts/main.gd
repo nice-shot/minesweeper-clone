@@ -8,6 +8,9 @@ export var width := 20
 export var height := 20
 
 onready var _mines_manager := $MinesContainer
+onready var _retry_symbol: Control = $ResetButton/RetrySymbol
+onready var _lost_symbol: Control = $ResetButton/LostSymbol
+onready var _won_symbol: Control = $ResetButton/WonSymbol
 
 func _set_board_size(width, height):
     """
@@ -25,3 +28,22 @@ func _set_board_size(width, height):
     
 func _ready() -> void:
     _set_board_size(width, height)
+
+
+func on_lost() -> void:
+    _retry_symbol.visible = false
+    _lost_symbol.visible = true
+    _won_symbol.visible = false
+
+
+func on_won() -> void:
+    _retry_symbol.visible = false
+    _lost_symbol.visible = false
+    _won_symbol.visible = true
+
+
+func on_reset() -> void:
+    _retry_symbol.visible = true
+    _lost_symbol.visible = false
+    _won_symbol.visible = false
+    
