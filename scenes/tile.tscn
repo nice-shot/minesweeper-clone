@@ -1,27 +1,34 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://sprites/minesweeper-tiles.png" type="Texture" id=1]
-
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 1 )
-region = Rect2( 1, 1, 14, 14 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 1 )
-region = Rect2( 31, 1, 14, 14 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 1 )
-region = Rect2( 16, 1, 14, 14 )
+[ext_resource path="res://sprites/button_states/button_normal.tres" type="Texture" id=1]
+[ext_resource path="res://sprites/overlays/num-1.tres" type="Texture" id=2]
+[ext_resource path="res://scripts/tile.gd" type="Script" id=3]
+[ext_resource path="res://sprites/overlays/num-8.tres" type="Texture" id=4]
+[ext_resource path="res://sprites/overlays/num-9.tres" type="Texture" id=5]
+[ext_resource path="res://sprites/overlays/num-4.tres" type="Texture" id=6]
+[ext_resource path="res://sprites/overlays/num-5.tres" type="Texture" id=7]
+[ext_resource path="res://sprites/overlays/num-2.tres" type="Texture" id=8]
+[ext_resource path="res://sprites/overlays/num-6.tres" type="Texture" id=9]
+[ext_resource path="res://sprites/overlays/num-3.tres" type="Texture" id=10]
+[ext_resource path="res://sprites/overlays/num-7.tres" type="Texture" id=11]
+[ext_resource path="res://sprites/button_states/button_highlighted.tres" type="Texture" id=12]
+[ext_resource path="res://sprites/button_states/button_pressed.tres" type="Texture" id=13]
 
 [node name="Tile" type="TextureButton"]
 margin_right = 14.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 14, 14 )
-texture_normal = SubResource( 1 )
-texture_pressed = SubResource( 2 )
-texture_hover = SubResource( 3 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 13 )
 stretch_mode = 2
+script = ExtResource( 3 )
+number_textures = [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 5 ) ]
+
+[node name="Overlay" type="TextureRect" parent="."]
+visible = false
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
