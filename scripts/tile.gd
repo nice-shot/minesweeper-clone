@@ -4,11 +4,13 @@ extends TextureButton
 signal flagged
 signal unflagged
 signal clicked
+signal special_clicked
 
 export(Array, Texture) var number_textures := []
 
 # -1 means this is a mine.
 var nearby_mines := 0
+var is_flagged: bool setget _set_flagged, _get_flagged
 
 var _question_mark: Texture = preload("res://sprites/overlays/question_mark.tres")
 var _mine: Texture = preload("res://sprites/overlays/mine.tres")
@@ -16,10 +18,12 @@ var _button_normal: Texture = preload("res://sprites/button_states/button_normal
 var _button_pressed: Texture = preload("res://sprites/button_states/button_pressed.tres")
 var _button_highlighted: Texture = preload("res://sprites/button_states/button_highlighted.tres")
 
+var _left_click
+
 onready var _overlay: TextureRect = $Overlay
 
 
-func _set_flagged(is_flagged: bool):
+func _set_flagged(is_flagged: bool) -> void:
     # This tile has already been clicked.
     if disabled and _overlay.texture != _question_mark:
         return
@@ -37,12 +41,21 @@ func _set_flagged(is_flagged: bool):
         emit_signal("unflagged")
 
 
+func _get_flagged() -> bool:
+    return disabled and _overlay.texture == _question_mark
+
+
 func _gui_input(event: InputEvent) -> void:
     var mouse_event = event as InputEventMouseButton
-    if mouse_event \
-       and mouse_event.button_index == BUTTON_RIGHT \
-       and mouse_event.pressed:
-        _set_flagged(not _overlay.visible)
+    if mouse_event:
+        if mouse_event.button_index == BUTTON_RIGHT \
+           and mouse_event.pressed:
+            _set_flagged(not _overlay.visible)
+        # Double click to reveal nearby cells.
+        elif mouse_event.button_index == BUTTON_LEFT \
+           and mouse_event.doubleclick \
+           and not _get_flagged():
+            emit_signal("special_clicked")
 
 
 func _pressed() -> void:

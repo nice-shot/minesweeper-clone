@@ -28,7 +28,6 @@ config/icon="res://icon.png"
 
 window/size/width=315
 window/size/height=345
-window/size/resizable=false
 window/size/always_on_top=true
 window/size/test_width=630
 window/size/test_height=690

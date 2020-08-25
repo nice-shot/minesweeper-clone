@@ -25,10 +25,19 @@ func set_board_size(width: int, height: int) -> void:
         width * CELL_SIZE + 1 + GRID_MARGIN_SIZE * 2,
         height * CELL_SIZE + 1 + GRID_MARGIN_SIZE + TOP_HEIGHT
     )
-    OS.window_size = new_size * 2
     get_viewport().set_size_override(false, new_size)
+    OS.window_size = new_size * 2
+    rect_size = new_size
+#    ProjectSettings.set_setting("display/window/size/width", new_size.x)
+#    ProjectSettings.set_setting("display/window/size/height", new_size.y)
+#    print(ProjectSettings.get_setting("display/window/size/width"))
     
     _mines_manager.create_board(width, height)
+    # Wait two frames to recenter the stage.
+    yield(get_tree(), "idle_frame")
+    yield(get_tree(), "idle_frame")
+    yield(get_tree(), "idle_frame")
+    rect_position = Vector2(0, 0)
 
 
 func on_lost() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://sprites/minesweeper-tiles.png" type="Texture" id=1]
 [ext_resource path="res://scenes/tile.tscn" type="PackedScene" id=2]
@@ -50,26 +50,43 @@ region = Rect2( 87, 31, 15, 29 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 1 )
-region = Rect2( 102, 66, 5, 19 )
+region = Rect2( 103, 31, 15, 29 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 1 )
-region = Rect2( 96, 66, 5, 19 )
+region = Rect2( 102, 66, 5, 19 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 1 )
+region = Rect2( 96, 66, 5, 19 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 1 )
 region = Rect2( 90, 66, 5, 19 )
 
-[node name="Main" type="Control"]
+[node name="Container" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -157.5
+margin_top = -172.5
+margin_right = 157.5
+margin_bottom = 172.5
 theme = SubResource( 2 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Frame" type="Panel" parent="."]
+[node name="Frame" type="Panel" parent="Main"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 3 )
@@ -77,7 +94,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TopButtons" type="Control" parent="."]
+[node name="TopButtons" type="Control" parent="Main"]
 pause_mode = 2
 anchor_right = 1.0
 margin_left = 6.0
@@ -88,7 +105,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResetButton" type="TextureButton" parent="TopButtons"]
+[node name="ResetButton" type="TextureButton" parent="Main/TopButtons"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -21.0
@@ -102,65 +119,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RetrySymbol" type="TextureRect" parent="TopButtons/ResetButton"]
+[node name="RetrySymbol" type="TextureRect" parent="Main/TopButtons/ResetButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = SubResource( 6 )
 stretch_mode = 4
 
-[node name="LostSymbol" type="TextureRect" parent="TopButtons/ResetButton"]
+[node name="LostSymbol" type="TextureRect" parent="Main/TopButtons/ResetButton"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = SubResource( 7 )
 stretch_mode = 4
 
-[node name="WonSymbol" type="TextureRect" parent="TopButtons/ResetButton"]
+[node name="WonSymbol" type="TextureRect" parent="Main/TopButtons/ResetButton"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = SubResource( 8 )
 stretch_mode = 4
 
-[node name="LargSizeButton" type="TextureButton" parent="TopButtons"]
+[node name="LargSizeButton" type="TextureButton" parent="Main/TopButtons"]
 pause_mode = 2
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -15.0
 margin_bottom = 29.0
 texture_normal = SubResource( 9 )
-texture_pressed = SubResource( 5 )
+texture_pressed = SubResource( 10 )
 expand = true
 stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Icon" type="TextureRect" parent="TopButtons/LargSizeButton"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = SubResource( 10 )
-stretch_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MediumSizeButton" type="TextureButton" parent="TopButtons"]
-pause_mode = 2
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -32.0
-margin_right = -17.0
-margin_bottom = 29.0
-texture_normal = SubResource( 9 )
-texture_pressed = SubResource( 5 )
-expand = true
-stretch_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Icon" type="TextureRect" parent="TopButtons/MediumSizeButton"]
+[node name="Icon" type="TextureRect" parent="Main/TopButtons/LargSizeButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = SubResource( 11 )
@@ -169,23 +162,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SmallSizeButton" type="TextureButton" parent="TopButtons"]
+[node name="MediumSizeButton" type="TextureButton" parent="Main/TopButtons"]
 pause_mode = 2
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -49.0
-margin_right = -34.0
+margin_left = -32.0
+margin_right = -17.0
 margin_bottom = 29.0
-rect_pivot_offset = Vector2( -64.378, -17.5437 )
 texture_normal = SubResource( 9 )
-texture_pressed = SubResource( 5 )
+texture_pressed = SubResource( 10 )
 expand = true
 stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Icon" type="TextureRect" parent="TopButtons/SmallSizeButton"]
+[node name="Icon" type="TextureRect" parent="Main/TopButtons/MediumSizeButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = SubResource( 12 )
@@ -194,7 +186,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExposeButton" type="TextureButton" parent="."]
+[node name="SmallSizeButton" type="TextureButton" parent="Main/TopButtons"]
+pause_mode = 2
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -49.0
+margin_right = -34.0
+margin_bottom = 29.0
+texture_normal = SubResource( 9 )
+texture_pressed = SubResource( 10 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="Main/TopButtons/SmallSizeButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 13 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExposeButton" type="TextureButton" parent="Main"]
 visible = false
 anchor_right = 1.0
 margin_left = 76.7168
@@ -209,7 +225,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MinesContainer" type="Panel" parent="."]
+[node name="MinesContainer" type="Panel" parent="Main"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 6.0
@@ -222,7 +238,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Grid" type="GridContainer" parent="MinesContainer"]
+[node name="Grid" type="GridContainer" parent="Main/MinesContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 2.0
@@ -236,2330 +252,2330 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tile" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 
-[node name="Tile2" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile2" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_right = 29.0
 
-[node name="Tile3" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile3" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_right = 44.0
 
-[node name="Tile4" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile4" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_right = 59.0
 
-[node name="Tile5" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile5" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_right = 74.0
 
-[node name="Tile6" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile6" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_right = 89.0
 
-[node name="Tile7" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile7" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_right = 104.0
 
-[node name="Tile8" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile8" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_right = 119.0
 
-[node name="Tile9" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile9" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_right = 134.0
 
-[node name="Tile10" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile10" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_right = 149.0
 
-[node name="Tile11" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile11" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_right = 164.0
 
-[node name="Tile12" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile12" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_right = 179.0
 
-[node name="Tile13" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile13" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_right = 194.0
 
-[node name="Tile14" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile14" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_right = 209.0
 
-[node name="Tile15" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile15" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_right = 224.0
 
-[node name="Tile16" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile16" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_right = 239.0
 
-[node name="Tile17" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile17" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_right = 254.0
 
-[node name="Tile18" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile18" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_right = 269.0
 
-[node name="Tile19" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile19" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_right = 284.0
 
-[node name="Tile20" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile20" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_right = 299.0
 
-[node name="Tile21" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile21" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 15.0
 margin_bottom = 29.0
 
-[node name="Tile22" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile22" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 15.0
 margin_right = 29.0
 margin_bottom = 29.0
 
-[node name="Tile23" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile23" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 15.0
 margin_right = 44.0
 margin_bottom = 29.0
 
-[node name="Tile24" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile24" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 15.0
 margin_right = 59.0
 margin_bottom = 29.0
 
-[node name="Tile25" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile25" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 15.0
 margin_right = 74.0
 margin_bottom = 29.0
 
-[node name="Tile26" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile26" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 15.0
 margin_right = 89.0
 margin_bottom = 29.0
 
-[node name="Tile27" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile27" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 15.0
 margin_right = 104.0
 margin_bottom = 29.0
 
-[node name="Tile28" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile28" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 15.0
 margin_right = 119.0
 margin_bottom = 29.0
 
-[node name="Tile29" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile29" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 15.0
 margin_right = 134.0
 margin_bottom = 29.0
 
-[node name="Tile30" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile30" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 15.0
 margin_right = 149.0
 margin_bottom = 29.0
 
-[node name="Tile31" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile31" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 15.0
 margin_right = 164.0
 margin_bottom = 29.0
 
-[node name="Tile32" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile32" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 15.0
 margin_right = 179.0
 margin_bottom = 29.0
 
-[node name="Tile33" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile33" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 15.0
 margin_right = 194.0
 margin_bottom = 29.0
 
-[node name="Tile34" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile34" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 15.0
 margin_right = 209.0
 margin_bottom = 29.0
 
-[node name="Tile35" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile35" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 15.0
 margin_right = 224.0
 margin_bottom = 29.0
 
-[node name="Tile36" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile36" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 15.0
 margin_right = 239.0
 margin_bottom = 29.0
 
-[node name="Tile37" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile37" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 15.0
 margin_right = 254.0
 margin_bottom = 29.0
 
-[node name="Tile38" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile38" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 15.0
 margin_right = 269.0
 margin_bottom = 29.0
 
-[node name="Tile39" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile39" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 15.0
 margin_right = 284.0
 margin_bottom = 29.0
 
-[node name="Tile40" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile40" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 15.0
 margin_right = 299.0
 margin_bottom = 29.0
 
-[node name="Tile41" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile41" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 30.0
 margin_bottom = 44.0
 
-[node name="Tile42" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile42" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 30.0
 margin_right = 29.0
 margin_bottom = 44.0
 
-[node name="Tile43" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile43" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 30.0
 margin_right = 44.0
 margin_bottom = 44.0
 
-[node name="Tile44" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile44" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 30.0
 margin_right = 59.0
 margin_bottom = 44.0
 
-[node name="Tile45" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile45" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 30.0
 margin_right = 74.0
 margin_bottom = 44.0
 
-[node name="Tile46" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile46" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 30.0
 margin_right = 89.0
 margin_bottom = 44.0
 
-[node name="Tile47" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile47" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 30.0
 margin_right = 104.0
 margin_bottom = 44.0
 
-[node name="Tile48" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile48" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 30.0
 margin_right = 119.0
 margin_bottom = 44.0
 
-[node name="Tile49" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile49" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 30.0
 margin_right = 134.0
 margin_bottom = 44.0
 
-[node name="Tile50" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile50" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 30.0
 margin_right = 149.0
 margin_bottom = 44.0
 
-[node name="Tile51" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile51" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 30.0
 margin_right = 164.0
 margin_bottom = 44.0
 
-[node name="Tile52" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile52" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 30.0
 margin_right = 179.0
 margin_bottom = 44.0
 
-[node name="Tile53" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile53" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 30.0
 margin_right = 194.0
 margin_bottom = 44.0
 
-[node name="Tile54" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile54" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 30.0
 margin_right = 209.0
 margin_bottom = 44.0
 
-[node name="Tile55" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile55" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 30.0
 margin_right = 224.0
 margin_bottom = 44.0
 
-[node name="Tile56" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile56" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 30.0
 margin_right = 239.0
 margin_bottom = 44.0
 
-[node name="Tile57" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile57" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 30.0
 margin_right = 254.0
 margin_bottom = 44.0
 
-[node name="Tile58" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile58" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 30.0
 margin_right = 269.0
 margin_bottom = 44.0
 
-[node name="Tile59" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile59" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 30.0
 margin_right = 284.0
 margin_bottom = 44.0
 
-[node name="Tile60" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile60" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 30.0
 margin_right = 299.0
 margin_bottom = 44.0
 
-[node name="Tile61" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile61" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 45.0
 margin_bottom = 59.0
 
-[node name="Tile62" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile62" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 45.0
 margin_right = 29.0
 margin_bottom = 59.0
 
-[node name="Tile63" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile63" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 45.0
 margin_right = 44.0
 margin_bottom = 59.0
 
-[node name="Tile64" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile64" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 45.0
 margin_right = 59.0
 margin_bottom = 59.0
 
-[node name="Tile65" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile65" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 45.0
 margin_right = 74.0
 margin_bottom = 59.0
 
-[node name="Tile66" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile66" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 45.0
 margin_right = 89.0
 margin_bottom = 59.0
 
-[node name="Tile67" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile67" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 45.0
 margin_right = 104.0
 margin_bottom = 59.0
 
-[node name="Tile68" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile68" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 45.0
 margin_right = 119.0
 margin_bottom = 59.0
 
-[node name="Tile69" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile69" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 45.0
 margin_right = 134.0
 margin_bottom = 59.0
 
-[node name="Tile70" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile70" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 45.0
 margin_right = 149.0
 margin_bottom = 59.0
 
-[node name="Tile71" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile71" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 45.0
 margin_right = 164.0
 margin_bottom = 59.0
 
-[node name="Tile72" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile72" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 45.0
 margin_right = 179.0
 margin_bottom = 59.0
 
-[node name="Tile73" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile73" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 45.0
 margin_right = 194.0
 margin_bottom = 59.0
 
-[node name="Tile74" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile74" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 45.0
 margin_right = 209.0
 margin_bottom = 59.0
 
-[node name="Tile75" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile75" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 45.0
 margin_right = 224.0
 margin_bottom = 59.0
 
-[node name="Tile76" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile76" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 45.0
 margin_right = 239.0
 margin_bottom = 59.0
 
-[node name="Tile77" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile77" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 45.0
 margin_right = 254.0
 margin_bottom = 59.0
 
-[node name="Tile78" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile78" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 45.0
 margin_right = 269.0
 margin_bottom = 59.0
 
-[node name="Tile79" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile79" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 45.0
 margin_right = 284.0
 margin_bottom = 59.0
 
-[node name="Tile80" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile80" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 45.0
 margin_right = 299.0
 margin_bottom = 59.0
 
-[node name="Tile81" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile81" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 60.0
 margin_bottom = 74.0
 
-[node name="Tile82" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile82" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 60.0
 margin_right = 29.0
 margin_bottom = 74.0
 
-[node name="Tile83" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile83" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 60.0
 margin_right = 44.0
 margin_bottom = 74.0
 
-[node name="Tile84" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile84" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 60.0
 margin_right = 59.0
 margin_bottom = 74.0
 
-[node name="Tile85" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile85" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 60.0
 margin_right = 74.0
 margin_bottom = 74.0
 
-[node name="Tile86" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile86" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 60.0
 margin_right = 89.0
 margin_bottom = 74.0
 
-[node name="Tile87" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile87" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 60.0
 margin_right = 104.0
 margin_bottom = 74.0
 
-[node name="Tile88" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile88" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 60.0
 margin_right = 119.0
 margin_bottom = 74.0
 
-[node name="Tile89" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile89" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 60.0
 margin_right = 134.0
 margin_bottom = 74.0
 
-[node name="Tile90" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile90" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 60.0
 margin_right = 149.0
 margin_bottom = 74.0
 
-[node name="Tile91" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile91" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 60.0
 margin_right = 164.0
 margin_bottom = 74.0
 
-[node name="Tile92" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile92" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 60.0
 margin_right = 179.0
 margin_bottom = 74.0
 
-[node name="Tile93" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile93" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 60.0
 margin_right = 194.0
 margin_bottom = 74.0
 
-[node name="Tile94" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile94" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 60.0
 margin_right = 209.0
 margin_bottom = 74.0
 
-[node name="Tile95" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile95" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 60.0
 margin_right = 224.0
 margin_bottom = 74.0
 
-[node name="Tile96" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile96" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 60.0
 margin_right = 239.0
 margin_bottom = 74.0
 
-[node name="Tile97" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile97" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 60.0
 margin_right = 254.0
 margin_bottom = 74.0
 
-[node name="Tile98" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile98" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 60.0
 margin_right = 269.0
 margin_bottom = 74.0
 
-[node name="Tile99" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile99" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 60.0
 margin_right = 284.0
 margin_bottom = 74.0
 
-[node name="Tile100" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile100" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 60.0
 margin_right = 299.0
 margin_bottom = 74.0
 
-[node name="Tile101" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile101" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 75.0
 margin_bottom = 89.0
 
-[node name="Tile102" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile102" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 75.0
 margin_right = 29.0
 margin_bottom = 89.0
 
-[node name="Tile103" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile103" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 75.0
 margin_right = 44.0
 margin_bottom = 89.0
 
-[node name="Tile104" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile104" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 75.0
 margin_right = 59.0
 margin_bottom = 89.0
 
-[node name="Tile105" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile105" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 75.0
 margin_right = 74.0
 margin_bottom = 89.0
 
-[node name="Tile106" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile106" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 75.0
 margin_right = 89.0
 margin_bottom = 89.0
 
-[node name="Tile107" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile107" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 75.0
 margin_right = 104.0
 margin_bottom = 89.0
 
-[node name="Tile108" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile108" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 75.0
 margin_right = 119.0
 margin_bottom = 89.0
 
-[node name="Tile109" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile109" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 75.0
 margin_right = 134.0
 margin_bottom = 89.0
 
-[node name="Tile110" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile110" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 75.0
 margin_right = 149.0
 margin_bottom = 89.0
 
-[node name="Tile111" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile111" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 75.0
 margin_right = 164.0
 margin_bottom = 89.0
 
-[node name="Tile112" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile112" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 75.0
 margin_right = 179.0
 margin_bottom = 89.0
 
-[node name="Tile113" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile113" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 75.0
 margin_right = 194.0
 margin_bottom = 89.0
 
-[node name="Tile114" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile114" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 75.0
 margin_right = 209.0
 margin_bottom = 89.0
 
-[node name="Tile115" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile115" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 75.0
 margin_right = 224.0
 margin_bottom = 89.0
 
-[node name="Tile116" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile116" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 75.0
 margin_right = 239.0
 margin_bottom = 89.0
 
-[node name="Tile117" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile117" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 75.0
 margin_right = 254.0
 margin_bottom = 89.0
 
-[node name="Tile118" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile118" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 75.0
 margin_right = 269.0
 margin_bottom = 89.0
 
-[node name="Tile119" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile119" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 75.0
 margin_right = 284.0
 margin_bottom = 89.0
 
-[node name="Tile120" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile120" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 75.0
 margin_right = 299.0
 margin_bottom = 89.0
 
-[node name="Tile121" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile121" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 90.0
 margin_bottom = 104.0
 
-[node name="Tile122" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile122" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 90.0
 margin_right = 29.0
 margin_bottom = 104.0
 
-[node name="Tile123" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile123" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 90.0
 margin_right = 44.0
 margin_bottom = 104.0
 
-[node name="Tile124" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile124" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 90.0
 margin_right = 59.0
 margin_bottom = 104.0
 
-[node name="Tile125" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile125" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 90.0
 margin_right = 74.0
 margin_bottom = 104.0
 
-[node name="Tile126" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile126" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 90.0
 margin_right = 89.0
 margin_bottom = 104.0
 
-[node name="Tile127" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile127" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 90.0
 margin_right = 104.0
 margin_bottom = 104.0
 
-[node name="Tile128" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile128" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 90.0
 margin_right = 119.0
 margin_bottom = 104.0
 
-[node name="Tile129" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile129" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 90.0
 margin_right = 134.0
 margin_bottom = 104.0
 
-[node name="Tile130" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile130" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 90.0
 margin_right = 149.0
 margin_bottom = 104.0
 
-[node name="Tile131" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile131" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 90.0
 margin_right = 164.0
 margin_bottom = 104.0
 
-[node name="Tile132" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile132" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 90.0
 margin_right = 179.0
 margin_bottom = 104.0
 
-[node name="Tile133" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile133" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 90.0
 margin_right = 194.0
 margin_bottom = 104.0
 
-[node name="Tile134" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile134" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 90.0
 margin_right = 209.0
 margin_bottom = 104.0
 
-[node name="Tile135" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile135" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 90.0
 margin_right = 224.0
 margin_bottom = 104.0
 
-[node name="Tile136" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile136" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 90.0
 margin_right = 239.0
 margin_bottom = 104.0
 
-[node name="Tile137" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile137" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 90.0
 margin_right = 254.0
 margin_bottom = 104.0
 
-[node name="Tile138" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile138" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 90.0
 margin_right = 269.0
 margin_bottom = 104.0
 
-[node name="Tile139" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile139" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 90.0
 margin_right = 284.0
 margin_bottom = 104.0
 
-[node name="Tile140" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile140" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 90.0
 margin_right = 299.0
 margin_bottom = 104.0
 
-[node name="Tile141" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile141" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 105.0
 margin_bottom = 119.0
 
-[node name="Tile142" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile142" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 105.0
 margin_right = 29.0
 margin_bottom = 119.0
 
-[node name="Tile143" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile143" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 105.0
 margin_right = 44.0
 margin_bottom = 119.0
 
-[node name="Tile144" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile144" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 105.0
 margin_right = 59.0
 margin_bottom = 119.0
 
-[node name="Tile145" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile145" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 105.0
 margin_right = 74.0
 margin_bottom = 119.0
 
-[node name="Tile146" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile146" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 105.0
 margin_right = 89.0
 margin_bottom = 119.0
 
-[node name="Tile147" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile147" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 105.0
 margin_right = 104.0
 margin_bottom = 119.0
 
-[node name="Tile148" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile148" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 105.0
 margin_right = 119.0
 margin_bottom = 119.0
 
-[node name="Tile149" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile149" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 105.0
 margin_right = 134.0
 margin_bottom = 119.0
 
-[node name="Tile150" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile150" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 105.0
 margin_right = 149.0
 margin_bottom = 119.0
 
-[node name="Tile151" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile151" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 105.0
 margin_right = 164.0
 margin_bottom = 119.0
 
-[node name="Tile152" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile152" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 105.0
 margin_right = 179.0
 margin_bottom = 119.0
 
-[node name="Tile153" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile153" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 105.0
 margin_right = 194.0
 margin_bottom = 119.0
 
-[node name="Tile154" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile154" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 105.0
 margin_right = 209.0
 margin_bottom = 119.0
 
-[node name="Tile155" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile155" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 105.0
 margin_right = 224.0
 margin_bottom = 119.0
 
-[node name="Tile156" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile156" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 105.0
 margin_right = 239.0
 margin_bottom = 119.0
 
-[node name="Tile157" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile157" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 105.0
 margin_right = 254.0
 margin_bottom = 119.0
 
-[node name="Tile158" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile158" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 105.0
 margin_right = 269.0
 margin_bottom = 119.0
 
-[node name="Tile159" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile159" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 105.0
 margin_right = 284.0
 margin_bottom = 119.0
 
-[node name="Tile160" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile160" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 105.0
 margin_right = 299.0
 margin_bottom = 119.0
 
-[node name="Tile161" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile161" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 120.0
 margin_bottom = 134.0
 
-[node name="Tile162" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile162" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 120.0
 margin_right = 29.0
 margin_bottom = 134.0
 
-[node name="Tile163" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile163" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 120.0
 margin_right = 44.0
 margin_bottom = 134.0
 
-[node name="Tile164" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile164" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 120.0
 margin_right = 59.0
 margin_bottom = 134.0
 
-[node name="Tile165" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile165" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 120.0
 margin_right = 74.0
 margin_bottom = 134.0
 
-[node name="Tile166" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile166" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 120.0
 margin_right = 89.0
 margin_bottom = 134.0
 
-[node name="Tile167" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile167" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 120.0
 margin_right = 104.0
 margin_bottom = 134.0
 
-[node name="Tile168" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile168" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 120.0
 margin_right = 119.0
 margin_bottom = 134.0
 
-[node name="Tile169" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile169" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 120.0
 margin_right = 134.0
 margin_bottom = 134.0
 
-[node name="Tile170" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile170" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 120.0
 margin_right = 149.0
 margin_bottom = 134.0
 
-[node name="Tile171" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile171" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 120.0
 margin_right = 164.0
 margin_bottom = 134.0
 
-[node name="Tile172" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile172" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 120.0
 margin_right = 179.0
 margin_bottom = 134.0
 
-[node name="Tile173" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile173" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 120.0
 margin_right = 194.0
 margin_bottom = 134.0
 
-[node name="Tile174" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile174" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 120.0
 margin_right = 209.0
 margin_bottom = 134.0
 
-[node name="Tile175" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile175" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 120.0
 margin_right = 224.0
 margin_bottom = 134.0
 
-[node name="Tile176" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile176" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 120.0
 margin_right = 239.0
 margin_bottom = 134.0
 
-[node name="Tile177" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile177" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 120.0
 margin_right = 254.0
 margin_bottom = 134.0
 
-[node name="Tile178" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile178" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 120.0
 margin_right = 269.0
 margin_bottom = 134.0
 
-[node name="Tile179" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile179" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 120.0
 margin_right = 284.0
 margin_bottom = 134.0
 
-[node name="Tile180" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile180" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 120.0
 margin_right = 299.0
 margin_bottom = 134.0
 
-[node name="Tile181" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile181" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 135.0
 margin_bottom = 149.0
 
-[node name="Tile182" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile182" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 135.0
 margin_right = 29.0
 margin_bottom = 149.0
 
-[node name="Tile183" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile183" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 135.0
 margin_right = 44.0
 margin_bottom = 149.0
 
-[node name="Tile184" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile184" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 135.0
 margin_right = 59.0
 margin_bottom = 149.0
 
-[node name="Tile185" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile185" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 135.0
 margin_right = 74.0
 margin_bottom = 149.0
 
-[node name="Tile186" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile186" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 135.0
 margin_right = 89.0
 margin_bottom = 149.0
 
-[node name="Tile187" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile187" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 135.0
 margin_right = 104.0
 margin_bottom = 149.0
 
-[node name="Tile188" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile188" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 135.0
 margin_right = 119.0
 margin_bottom = 149.0
 
-[node name="Tile189" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile189" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 135.0
 margin_right = 134.0
 margin_bottom = 149.0
 
-[node name="Tile190" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile190" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 135.0
 margin_right = 149.0
 margin_bottom = 149.0
 
-[node name="Tile191" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile191" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 135.0
 margin_right = 164.0
 margin_bottom = 149.0
 
-[node name="Tile192" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile192" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 135.0
 margin_right = 179.0
 margin_bottom = 149.0
 
-[node name="Tile193" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile193" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 135.0
 margin_right = 194.0
 margin_bottom = 149.0
 
-[node name="Tile194" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile194" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 135.0
 margin_right = 209.0
 margin_bottom = 149.0
 
-[node name="Tile195" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile195" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 135.0
 margin_right = 224.0
 margin_bottom = 149.0
 
-[node name="Tile196" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile196" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 135.0
 margin_right = 239.0
 margin_bottom = 149.0
 
-[node name="Tile197" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile197" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 135.0
 margin_right = 254.0
 margin_bottom = 149.0
 
-[node name="Tile198" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile198" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 135.0
 margin_right = 269.0
 margin_bottom = 149.0
 
-[node name="Tile199" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile199" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 135.0
 margin_right = 284.0
 margin_bottom = 149.0
 
-[node name="Tile200" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile200" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 135.0
 margin_right = 299.0
 margin_bottom = 149.0
 
-[node name="Tile201" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile201" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 150.0
 margin_bottom = 164.0
 
-[node name="Tile202" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile202" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 150.0
 margin_right = 29.0
 margin_bottom = 164.0
 
-[node name="Tile203" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile203" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 150.0
 margin_right = 44.0
 margin_bottom = 164.0
 
-[node name="Tile204" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile204" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 150.0
 margin_right = 59.0
 margin_bottom = 164.0
 
-[node name="Tile205" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile205" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 150.0
 margin_right = 74.0
 margin_bottom = 164.0
 
-[node name="Tile206" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile206" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 150.0
 margin_right = 89.0
 margin_bottom = 164.0
 
-[node name="Tile207" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile207" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 150.0
 margin_right = 104.0
 margin_bottom = 164.0
 
-[node name="Tile208" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile208" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 150.0
 margin_right = 119.0
 margin_bottom = 164.0
 
-[node name="Tile209" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile209" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 150.0
 margin_right = 134.0
 margin_bottom = 164.0
 
-[node name="Tile210" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile210" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 150.0
 margin_right = 149.0
 margin_bottom = 164.0
 
-[node name="Tile211" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile211" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 150.0
 margin_right = 164.0
 margin_bottom = 164.0
 
-[node name="Tile212" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile212" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 150.0
 margin_right = 179.0
 margin_bottom = 164.0
 
-[node name="Tile213" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile213" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 150.0
 margin_right = 194.0
 margin_bottom = 164.0
 
-[node name="Tile214" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile214" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 150.0
 margin_right = 209.0
 margin_bottom = 164.0
 
-[node name="Tile215" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile215" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 150.0
 margin_right = 224.0
 margin_bottom = 164.0
 
-[node name="Tile216" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile216" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 150.0
 margin_right = 239.0
 margin_bottom = 164.0
 
-[node name="Tile217" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile217" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 150.0
 margin_right = 254.0
 margin_bottom = 164.0
 
-[node name="Tile218" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile218" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 150.0
 margin_right = 269.0
 margin_bottom = 164.0
 
-[node name="Tile219" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile219" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 150.0
 margin_right = 284.0
 margin_bottom = 164.0
 
-[node name="Tile220" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile220" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 150.0
 margin_right = 299.0
 margin_bottom = 164.0
 
-[node name="Tile221" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile221" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 165.0
 margin_bottom = 179.0
 
-[node name="Tile222" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile222" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 165.0
 margin_right = 29.0
 margin_bottom = 179.0
 
-[node name="Tile223" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile223" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 165.0
 margin_right = 44.0
 margin_bottom = 179.0
 
-[node name="Tile224" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile224" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 165.0
 margin_right = 59.0
 margin_bottom = 179.0
 
-[node name="Tile225" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile225" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 165.0
 margin_right = 74.0
 margin_bottom = 179.0
 
-[node name="Tile226" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile226" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 165.0
 margin_right = 89.0
 margin_bottom = 179.0
 
-[node name="Tile227" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile227" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 165.0
 margin_right = 104.0
 margin_bottom = 179.0
 
-[node name="Tile228" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile228" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 165.0
 margin_right = 119.0
 margin_bottom = 179.0
 
-[node name="Tile229" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile229" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 165.0
 margin_right = 134.0
 margin_bottom = 179.0
 
-[node name="Tile230" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile230" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 165.0
 margin_right = 149.0
 margin_bottom = 179.0
 
-[node name="Tile231" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile231" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 165.0
 margin_right = 164.0
 margin_bottom = 179.0
 
-[node name="Tile232" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile232" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 165.0
 margin_right = 179.0
 margin_bottom = 179.0
 
-[node name="Tile233" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile233" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 165.0
 margin_right = 194.0
 margin_bottom = 179.0
 
-[node name="Tile234" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile234" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 165.0
 margin_right = 209.0
 margin_bottom = 179.0
 
-[node name="Tile235" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile235" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 165.0
 margin_right = 224.0
 margin_bottom = 179.0
 
-[node name="Tile236" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile236" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 165.0
 margin_right = 239.0
 margin_bottom = 179.0
 
-[node name="Tile237" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile237" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 165.0
 margin_right = 254.0
 margin_bottom = 179.0
 
-[node name="Tile238" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile238" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 165.0
 margin_right = 269.0
 margin_bottom = 179.0
 
-[node name="Tile239" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile239" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 165.0
 margin_right = 284.0
 margin_bottom = 179.0
 
-[node name="Tile240" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile240" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 165.0
 margin_right = 299.0
 margin_bottom = 179.0
 
-[node name="Tile241" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile241" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 180.0
 margin_bottom = 194.0
 
-[node name="Tile242" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile242" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 180.0
 margin_right = 29.0
 margin_bottom = 194.0
 
-[node name="Tile243" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile243" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 180.0
 margin_right = 44.0
 margin_bottom = 194.0
 
-[node name="Tile244" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile244" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 180.0
 margin_right = 59.0
 margin_bottom = 194.0
 
-[node name="Tile245" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile245" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 180.0
 margin_right = 74.0
 margin_bottom = 194.0
 
-[node name="Tile246" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile246" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 180.0
 margin_right = 89.0
 margin_bottom = 194.0
 
-[node name="Tile247" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile247" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 180.0
 margin_right = 104.0
 margin_bottom = 194.0
 
-[node name="Tile248" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile248" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 180.0
 margin_right = 119.0
 margin_bottom = 194.0
 
-[node name="Tile249" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile249" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 180.0
 margin_right = 134.0
 margin_bottom = 194.0
 
-[node name="Tile250" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile250" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 180.0
 margin_right = 149.0
 margin_bottom = 194.0
 
-[node name="Tile251" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile251" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 180.0
 margin_right = 164.0
 margin_bottom = 194.0
 
-[node name="Tile252" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile252" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 180.0
 margin_right = 179.0
 margin_bottom = 194.0
 
-[node name="Tile253" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile253" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 180.0
 margin_right = 194.0
 margin_bottom = 194.0
 
-[node name="Tile254" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile254" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 180.0
 margin_right = 209.0
 margin_bottom = 194.0
 
-[node name="Tile255" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile255" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 180.0
 margin_right = 224.0
 margin_bottom = 194.0
 
-[node name="Tile256" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile256" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 180.0
 margin_right = 239.0
 margin_bottom = 194.0
 
-[node name="Tile257" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile257" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 180.0
 margin_right = 254.0
 margin_bottom = 194.0
 
-[node name="Tile258" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile258" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 180.0
 margin_right = 269.0
 margin_bottom = 194.0
 
-[node name="Tile259" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile259" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 180.0
 margin_right = 284.0
 margin_bottom = 194.0
 
-[node name="Tile260" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile260" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 180.0
 margin_right = 299.0
 margin_bottom = 194.0
 
-[node name="Tile261" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile261" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 195.0
 margin_bottom = 209.0
 
-[node name="Tile262" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile262" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 195.0
 margin_right = 29.0
 margin_bottom = 209.0
 
-[node name="Tile263" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile263" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 195.0
 margin_right = 44.0
 margin_bottom = 209.0
 
-[node name="Tile264" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile264" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 195.0
 margin_right = 59.0
 margin_bottom = 209.0
 
-[node name="Tile265" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile265" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 195.0
 margin_right = 74.0
 margin_bottom = 209.0
 
-[node name="Tile266" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile266" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 195.0
 margin_right = 89.0
 margin_bottom = 209.0
 
-[node name="Tile267" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile267" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 195.0
 margin_right = 104.0
 margin_bottom = 209.0
 
-[node name="Tile268" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile268" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 195.0
 margin_right = 119.0
 margin_bottom = 209.0
 
-[node name="Tile269" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile269" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 195.0
 margin_right = 134.0
 margin_bottom = 209.0
 
-[node name="Tile270" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile270" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 195.0
 margin_right = 149.0
 margin_bottom = 209.0
 
-[node name="Tile271" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile271" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 195.0
 margin_right = 164.0
 margin_bottom = 209.0
 
-[node name="Tile272" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile272" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 195.0
 margin_right = 179.0
 margin_bottom = 209.0
 
-[node name="Tile273" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile273" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 195.0
 margin_right = 194.0
 margin_bottom = 209.0
 
-[node name="Tile274" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile274" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 195.0
 margin_right = 209.0
 margin_bottom = 209.0
 
-[node name="Tile275" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile275" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 195.0
 margin_right = 224.0
 margin_bottom = 209.0
 
-[node name="Tile276" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile276" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 195.0
 margin_right = 239.0
 margin_bottom = 209.0
 
-[node name="Tile277" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile277" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 195.0
 margin_right = 254.0
 margin_bottom = 209.0
 
-[node name="Tile278" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile278" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 195.0
 margin_right = 269.0
 margin_bottom = 209.0
 
-[node name="Tile279" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile279" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 195.0
 margin_right = 284.0
 margin_bottom = 209.0
 
-[node name="Tile280" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile280" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 195.0
 margin_right = 299.0
 margin_bottom = 209.0
 
-[node name="Tile281" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile281" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 210.0
 margin_bottom = 224.0
 
-[node name="Tile282" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile282" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 210.0
 margin_right = 29.0
 margin_bottom = 224.0
 
-[node name="Tile283" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile283" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 210.0
 margin_right = 44.0
 margin_bottom = 224.0
 
-[node name="Tile284" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile284" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 210.0
 margin_right = 59.0
 margin_bottom = 224.0
 
-[node name="Tile285" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile285" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 210.0
 margin_right = 74.0
 margin_bottom = 224.0
 
-[node name="Tile286" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile286" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 210.0
 margin_right = 89.0
 margin_bottom = 224.0
 
-[node name="Tile287" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile287" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 210.0
 margin_right = 104.0
 margin_bottom = 224.0
 
-[node name="Tile288" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile288" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 210.0
 margin_right = 119.0
 margin_bottom = 224.0
 
-[node name="Tile289" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile289" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 210.0
 margin_right = 134.0
 margin_bottom = 224.0
 
-[node name="Tile290" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile290" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 210.0
 margin_right = 149.0
 margin_bottom = 224.0
 
-[node name="Tile291" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile291" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 210.0
 margin_right = 164.0
 margin_bottom = 224.0
 
-[node name="Tile292" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile292" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 210.0
 margin_right = 179.0
 margin_bottom = 224.0
 
-[node name="Tile293" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile293" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 210.0
 margin_right = 194.0
 margin_bottom = 224.0
 
-[node name="Tile294" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile294" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 210.0
 margin_right = 209.0
 margin_bottom = 224.0
 
-[node name="Tile295" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile295" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 210.0
 margin_right = 224.0
 margin_bottom = 224.0
 
-[node name="Tile296" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile296" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 210.0
 margin_right = 239.0
 margin_bottom = 224.0
 
-[node name="Tile297" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile297" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 210.0
 margin_right = 254.0
 margin_bottom = 224.0
 
-[node name="Tile298" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile298" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 210.0
 margin_right = 269.0
 margin_bottom = 224.0
 
-[node name="Tile299" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile299" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 210.0
 margin_right = 284.0
 margin_bottom = 224.0
 
-[node name="Tile300" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile300" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 210.0
 margin_right = 299.0
 margin_bottom = 224.0
 
-[node name="Tile301" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile301" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 225.0
 margin_bottom = 239.0
 
-[node name="Tile302" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile302" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 225.0
 margin_right = 29.0
 margin_bottom = 239.0
 
-[node name="Tile303" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile303" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 225.0
 margin_right = 44.0
 margin_bottom = 239.0
 
-[node name="Tile304" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile304" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 225.0
 margin_right = 59.0
 margin_bottom = 239.0
 
-[node name="Tile305" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile305" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 225.0
 margin_right = 74.0
 margin_bottom = 239.0
 
-[node name="Tile306" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile306" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 225.0
 margin_right = 89.0
 margin_bottom = 239.0
 
-[node name="Tile307" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile307" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 225.0
 margin_right = 104.0
 margin_bottom = 239.0
 
-[node name="Tile308" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile308" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 225.0
 margin_right = 119.0
 margin_bottom = 239.0
 
-[node name="Tile309" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile309" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 225.0
 margin_right = 134.0
 margin_bottom = 239.0
 
-[node name="Tile310" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile310" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 225.0
 margin_right = 149.0
 margin_bottom = 239.0
 
-[node name="Tile311" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile311" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 225.0
 margin_right = 164.0
 margin_bottom = 239.0
 
-[node name="Tile312" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile312" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 225.0
 margin_right = 179.0
 margin_bottom = 239.0
 
-[node name="Tile313" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile313" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 225.0
 margin_right = 194.0
 margin_bottom = 239.0
 
-[node name="Tile314" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile314" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 225.0
 margin_right = 209.0
 margin_bottom = 239.0
 
-[node name="Tile315" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile315" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 225.0
 margin_right = 224.0
 margin_bottom = 239.0
 
-[node name="Tile316" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile316" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 225.0
 margin_right = 239.0
 margin_bottom = 239.0
 
-[node name="Tile317" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile317" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 225.0
 margin_right = 254.0
 margin_bottom = 239.0
 
-[node name="Tile318" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile318" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 225.0
 margin_right = 269.0
 margin_bottom = 239.0
 
-[node name="Tile319" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile319" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 225.0
 margin_right = 284.0
 margin_bottom = 239.0
 
-[node name="Tile320" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile320" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 225.0
 margin_right = 299.0
 margin_bottom = 239.0
 
-[node name="Tile321" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile321" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 240.0
 margin_bottom = 254.0
 
-[node name="Tile322" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile322" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 240.0
 margin_right = 29.0
 margin_bottom = 254.0
 
-[node name="Tile323" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile323" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 240.0
 margin_right = 44.0
 margin_bottom = 254.0
 
-[node name="Tile324" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile324" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 240.0
 margin_right = 59.0
 margin_bottom = 254.0
 
-[node name="Tile325" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile325" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 240.0
 margin_right = 74.0
 margin_bottom = 254.0
 
-[node name="Tile326" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile326" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 240.0
 margin_right = 89.0
 margin_bottom = 254.0
 
-[node name="Tile327" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile327" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 240.0
 margin_right = 104.0
 margin_bottom = 254.0
 
-[node name="Tile328" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile328" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 240.0
 margin_right = 119.0
 margin_bottom = 254.0
 
-[node name="Tile329" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile329" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 240.0
 margin_right = 134.0
 margin_bottom = 254.0
 
-[node name="Tile330" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile330" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 240.0
 margin_right = 149.0
 margin_bottom = 254.0
 
-[node name="Tile331" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile331" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 240.0
 margin_right = 164.0
 margin_bottom = 254.0
 
-[node name="Tile332" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile332" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 240.0
 margin_right = 179.0
 margin_bottom = 254.0
 
-[node name="Tile333" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile333" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 240.0
 margin_right = 194.0
 margin_bottom = 254.0
 
-[node name="Tile334" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile334" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 240.0
 margin_right = 209.0
 margin_bottom = 254.0
 
-[node name="Tile335" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile335" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 240.0
 margin_right = 224.0
 margin_bottom = 254.0
 
-[node name="Tile336" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile336" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 240.0
 margin_right = 239.0
 margin_bottom = 254.0
 
-[node name="Tile337" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile337" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 240.0
 margin_right = 254.0
 margin_bottom = 254.0
 
-[node name="Tile338" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile338" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 240.0
 margin_right = 269.0
 margin_bottom = 254.0
 
-[node name="Tile339" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile339" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 240.0
 margin_right = 284.0
 margin_bottom = 254.0
 
-[node name="Tile340" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile340" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 240.0
 margin_right = 299.0
 margin_bottom = 254.0
 
-[node name="Tile341" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile341" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 255.0
 margin_bottom = 269.0
 
-[node name="Tile342" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile342" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 255.0
 margin_right = 29.0
 margin_bottom = 269.0
 
-[node name="Tile343" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile343" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 255.0
 margin_right = 44.0
 margin_bottom = 269.0
 
-[node name="Tile344" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile344" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 255.0
 margin_right = 59.0
 margin_bottom = 269.0
 
-[node name="Tile345" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile345" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 255.0
 margin_right = 74.0
 margin_bottom = 269.0
 
-[node name="Tile346" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile346" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 255.0
 margin_right = 89.0
 margin_bottom = 269.0
 
-[node name="Tile347" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile347" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 255.0
 margin_right = 104.0
 margin_bottom = 269.0
 
-[node name="Tile348" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile348" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 255.0
 margin_right = 119.0
 margin_bottom = 269.0
 
-[node name="Tile349" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile349" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 255.0
 margin_right = 134.0
 margin_bottom = 269.0
 
-[node name="Tile350" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile350" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 255.0
 margin_right = 149.0
 margin_bottom = 269.0
 
-[node name="Tile351" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile351" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 255.0
 margin_right = 164.0
 margin_bottom = 269.0
 
-[node name="Tile352" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile352" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 255.0
 margin_right = 179.0
 margin_bottom = 269.0
 
-[node name="Tile353" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile353" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 255.0
 margin_right = 194.0
 margin_bottom = 269.0
 
-[node name="Tile354" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile354" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 255.0
 margin_right = 209.0
 margin_bottom = 269.0
 
-[node name="Tile355" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile355" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 255.0
 margin_right = 224.0
 margin_bottom = 269.0
 
-[node name="Tile356" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile356" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 255.0
 margin_right = 239.0
 margin_bottom = 269.0
 
-[node name="Tile357" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile357" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 255.0
 margin_right = 254.0
 margin_bottom = 269.0
 
-[node name="Tile358" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile358" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 255.0
 margin_right = 269.0
 margin_bottom = 269.0
 
-[node name="Tile359" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile359" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 255.0
 margin_right = 284.0
 margin_bottom = 269.0
 
-[node name="Tile360" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile360" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 255.0
 margin_right = 299.0
 margin_bottom = 269.0
 
-[node name="Tile361" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile361" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 270.0
 margin_bottom = 284.0
 
-[node name="Tile362" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile362" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 270.0
 margin_right = 29.0
 margin_bottom = 284.0
 
-[node name="Tile363" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile363" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 270.0
 margin_right = 44.0
 margin_bottom = 284.0
 
-[node name="Tile364" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile364" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 270.0
 margin_right = 59.0
 margin_bottom = 284.0
 
-[node name="Tile365" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile365" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 270.0
 margin_right = 74.0
 margin_bottom = 284.0
 
-[node name="Tile366" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile366" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 270.0
 margin_right = 89.0
 margin_bottom = 284.0
 
-[node name="Tile367" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile367" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 270.0
 margin_right = 104.0
 margin_bottom = 284.0
 
-[node name="Tile368" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile368" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 270.0
 margin_right = 119.0
 margin_bottom = 284.0
 
-[node name="Tile369" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile369" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 270.0
 margin_right = 134.0
 margin_bottom = 284.0
 
-[node name="Tile370" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile370" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 270.0
 margin_right = 149.0
 margin_bottom = 284.0
 
-[node name="Tile371" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile371" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 270.0
 margin_right = 164.0
 margin_bottom = 284.0
 
-[node name="Tile372" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile372" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 270.0
 margin_right = 179.0
 margin_bottom = 284.0
 
-[node name="Tile373" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile373" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 270.0
 margin_right = 194.0
 margin_bottom = 284.0
 
-[node name="Tile374" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile374" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 270.0
 margin_right = 209.0
 margin_bottom = 284.0
 
-[node name="Tile375" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile375" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 270.0
 margin_right = 224.0
 margin_bottom = 284.0
 
-[node name="Tile376" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile376" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 270.0
 margin_right = 239.0
 margin_bottom = 284.0
 
-[node name="Tile377" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile377" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 270.0
 margin_right = 254.0
 margin_bottom = 284.0
 
-[node name="Tile378" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile378" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 270.0
 margin_right = 269.0
 margin_bottom = 284.0
 
-[node name="Tile379" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile379" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 270.0
 margin_right = 284.0
 margin_bottom = 284.0
 
-[node name="Tile380" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile380" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 270.0
 margin_right = 299.0
 margin_bottom = 284.0
 
-[node name="Tile381" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile381" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_top = 285.0
 margin_bottom = 299.0
 
-[node name="Tile382" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile382" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 15.0
 margin_top = 285.0
 margin_right = 29.0
 margin_bottom = 299.0
 
-[node name="Tile383" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile383" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 30.0
 margin_top = 285.0
 margin_right = 44.0
 margin_bottom = 299.0
 
-[node name="Tile384" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile384" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 45.0
 margin_top = 285.0
 margin_right = 59.0
 margin_bottom = 299.0
 
-[node name="Tile385" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile385" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 60.0
 margin_top = 285.0
 margin_right = 74.0
 margin_bottom = 299.0
 
-[node name="Tile386" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile386" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 75.0
 margin_top = 285.0
 margin_right = 89.0
 margin_bottom = 299.0
 
-[node name="Tile387" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile387" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 90.0
 margin_top = 285.0
 margin_right = 104.0
 margin_bottom = 299.0
 
-[node name="Tile388" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile388" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 105.0
 margin_top = 285.0
 margin_right = 119.0
 margin_bottom = 299.0
 
-[node name="Tile389" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile389" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_top = 285.0
 margin_right = 134.0
 margin_bottom = 299.0
 
-[node name="Tile390" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile390" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 135.0
 margin_top = 285.0
 margin_right = 149.0
 margin_bottom = 299.0
 
-[node name="Tile391" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile391" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 150.0
 margin_top = 285.0
 margin_right = 164.0
 margin_bottom = 299.0
 
-[node name="Tile392" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile392" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 165.0
 margin_top = 285.0
 margin_right = 179.0
 margin_bottom = 299.0
 
-[node name="Tile393" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile393" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 180.0
 margin_top = 285.0
 margin_right = 194.0
 margin_bottom = 299.0
 
-[node name="Tile394" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile394" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 195.0
 margin_top = 285.0
 margin_right = 209.0
 margin_bottom = 299.0
 
-[node name="Tile395" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile395" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 210.0
 margin_top = 285.0
 margin_right = 224.0
 margin_bottom = 299.0
 
-[node name="Tile396" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile396" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 225.0
 margin_top = 285.0
 margin_right = 239.0
 margin_bottom = 299.0
 
-[node name="Tile397" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile397" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 240.0
 margin_top = 285.0
 margin_right = 254.0
 margin_bottom = 299.0
 
-[node name="Tile398" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile398" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 255.0
 margin_top = 285.0
 margin_right = 269.0
 margin_bottom = 299.0
 
-[node name="Tile399" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile399" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 270.0
 margin_top = 285.0
 margin_right = 284.0
 margin_bottom = 299.0
 
-[node name="Tile400" parent="MinesContainer/Grid" instance=ExtResource( 2 )]
+[node name="Tile400" parent="Main/MinesContainer/Grid" instance=ExtResource( 2 )]
 margin_left = 285.0
 margin_top = 285.0
 margin_right = 299.0
 margin_bottom = 299.0
-[connection signal="pressed" from="TopButtons/ResetButton" to="MinesContainer" method="reset"]
-[connection signal="pressed" from="TopButtons/LargSizeButton" to="." method="set_board_size" binds= [ 40, 25 ]]
-[connection signal="pressed" from="TopButtons/MediumSizeButton" to="." method="set_board_size" binds= [ 20, 20 ]]
-[connection signal="pressed" from="TopButtons/SmallSizeButton" to="." method="set_board_size" binds= [ 10, 15 ]]
-[connection signal="pressed" from="ExposeButton" to="." method="expose"]
-[connection signal="lost" from="MinesContainer" to="." method="on_lost"]
-[connection signal="reset" from="MinesContainer" to="." method="on_reset"]
-[connection signal="won" from="MinesContainer" to="." method="on_won"]
+[connection signal="pressed" from="Main/TopButtons/ResetButton" to="Main/MinesContainer" method="reset"]
+[connection signal="pressed" from="Main/TopButtons/LargSizeButton" to="Main" method="set_board_size" binds= [ 40, 25 ]]
+[connection signal="pressed" from="Main/TopButtons/MediumSizeButton" to="Main" method="set_board_size" binds= [ 20, 20 ]]
+[connection signal="pressed" from="Main/TopButtons/SmallSizeButton" to="Main" method="set_board_size" binds= [ 10, 15 ]]
+[connection signal="pressed" from="Main/ExposeButton" to="Main" method="expose"]
+[connection signal="lost" from="Main/MinesContainer" to="Main" method="on_lost"]
+[connection signal="reset" from="Main/MinesContainer" to="Main" method="on_reset"]
+[connection signal="won" from="Main/MinesContainer" to="Main" method="on_won"]

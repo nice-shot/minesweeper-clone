@@ -70,6 +70,23 @@ func _place_mines(starting_row: int, starting_column: int) -> void:
     print("Total of %d tiles to click." % _remaining_tiles)
                 
 
+func _on_tile_special_clicked(row: int, column: int) -> void:
+    print("Special clicked on tile: %dx%d" % [row, column])
+    var nearby_tiles = _get_nearby_tiles(row, column)
+    var tile: Tile = _mine_matrix[row][column]
+    var remaining_flags = tile.nearby_mines
+    
+    for nearby_tile in nearby_tiles:
+        nearby_tile = nearby_tile as Tile
+        if nearby_tile.is_flagged:
+            remaining_flags -= 1
+    
+    if remaining_flags <= 0:
+        for nearby_tile in nearby_tiles:
+            nearby_tile = nearby_tile as Tile
+            if not nearby_tile.is_flagged: nearby_tile.reveal()
+
+
 func _on_tile_clicked(row: int, column: int) -> void:
     print("Clicked on tile: %dx%d" % [row, column])
     if not _mines_placed:
@@ -122,6 +139,7 @@ func create_board(width: int, height: int) -> void:
         var current_row = int(i / width)
         var current_column = i % width
         tile.connect("clicked", self, "_on_tile_clicked", [current_row, current_column])
+        tile.connect("special_clicked", self, "_on_tile_special_clicked", [current_row, current_column])
         _mine_matrix[current_row].append(tile)
         
         _grid.add_child(tile)
